@@ -12,12 +12,39 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d4a40292e02b3e4ab877866d0512b32, type: 3}
   m_Name: AttackStat
   m_EditorClassIdentifier: RPG.Core.Character::RPG.Core.Character.DerivedStats
-  statsModifiers:
-  - stat:
-      <StatId>k__BackingField: 
-    value: 2
-    operatorType: 0
-  - stat:
-      <StatId>k__BackingField: dex
-    value: 1
-    operatorType: 0
+  _expressions:
+  - rid: 1209875750580912444
+  references:
+    version: 2
+    RefIds:
+    - rid: 1209875750580912444
+      type: {class: Power, ns: RPG.MathFormula, asm: RPG.MathGraphSystem}
+      data:
+        baseValue:
+          rid: 1209875750580912448
+        exponent:
+          rid: 1209875750580912449
+    - rid: 1209875750580912448
+      type: {class: EulerConstant, ns: RPG.MathFormula, asm: RPG.MathGraphSystem}
+      data: 
+    - rid: 1209875750580912449
+      type: {class: Addition, ns: RPG.MathFormula, asm: RPG.MathGraphSystem}
+      data:
+        values:
+        - rid: 1209875750580912450
+    - rid: 1209875750580912450
+      type: {class: Addition, ns: RPG.MathFormula, asm: RPG.MathGraphSystem}
+      data:
+        values:
+        - rid: 1209875750580912451
+        - rid: 1209875750580912453
+    - rid: 1209875750580912451
+      type: {class: CoreStatsExpression, ns: RPG.Core.Character, asm: RPG.Core.Character}
+      data:
+        statData:
+          <StatId>k__BackingField: 
+    - rid: 1209875750580912453
+      type: {class: CoreStatsExpression, ns: RPG.Core.Character, asm: RPG.Core.Character}
+      data:
+        statData:
+          <StatId>k__BackingField: dex

@@ -10,41 +10,52 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6d4a40292e02b3e4ab877866d0512b32, type: 3}
-  m_Name: MagicAttackStat
+  m_Name: Damage
   m_EditorClassIdentifier: RPG.Core.Character::RPG.Core.Character.DerivedStats
   _expressions:
-  - rid: 1209875750580912469
+  - rid: 1209875750580912454
+  - rid: 1209875750580912502
   references:
     version: 2
     RefIds:
-    - rid: 1209875750580912469
+    - rid: 1209875750580912454
       type: {class: Power, ns: RPG.MathFormula, asm: RPG.MathGraphSystem}
       data:
         baseValue:
-          rid: 1209875750580912470
+          rid: 1209875750580912455
         exponent:
-          rid: 1209875750580912471
-    - rid: 1209875750580912470
+          rid: 1209875750580912456
+    - rid: 1209875750580912455
       type: {class: EulerConstant, ns: RPG.MathFormula, asm: RPG.MathGraphSystem}
       data: 
-    - rid: 1209875750580912471
+    - rid: 1209875750580912456
       type: {class: Addition, ns: RPG.MathFormula, asm: RPG.MathGraphSystem}
       data:
         values:
-        - rid: 1209875750580912472
-    - rid: 1209875750580912472
-      type: {class: Addition, ns: RPG.MathFormula, asm: RPG.MathGraphSystem}
+        - rid: 1209875750580912460
+    - rid: 1209875750580912460
+      type: {class: Multiply, ns: RPG.MathFormula, asm: RPG.MathGraphSystem}
       data:
         values:
-        - rid: 1209875750580912473
-        - rid: 1209875750580912474
-    - rid: 1209875750580912473
+        - rid: 1209875750580912461
+        - rid: 1209875750580912462
+    - rid: 1209875750580912461
       type: {class: CoreStatsExpression, ns: RPG.Core.Character, asm: RPG.Core.Character}
       data:
         statData:
-          <StatId>k__BackingField: wis
-    - rid: 1209875750580912474
+          <StatId>k__BackingField: 
+    - rid: 1209875750580912462
       type: {class: CoreStatsExpression, ns: RPG.Core.Character, asm: RPG.Core.Character}
       data:
         statData:
           <StatId>k__BackingField: int
+    - rid: 1209875750580912502
+      type: {class: Addition, ns: RPG.MathFormula, asm: RPG.MathGraphSystem}
+      data:
+        values:
+        - rid: 1209875750580912503
+    - rid: 1209875750580912503
+      type: {class: CoreStatsExpression, ns: RPG.Core.Character, asm: RPG.Core.Character}
+      data:
+        statData:
+          <StatId>k__BackingField: luk

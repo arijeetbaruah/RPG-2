@@ -12,12 +12,44 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d4a40292e02b3e4ab877866d0512b32, type: 3}
   m_Name: Stamina
   m_EditorClassIdentifier: RPG.Core.Character::RPG.Core.Character.DerivedStats
-  statsModifiers:
-  - stat:
-      <StatId>k__BackingField: dex
-    value: 1
-    operatorType: 0
-  - stat:
-      <StatId>k__BackingField: wis
-    value: 2
-    operatorType: 0
+  _expressions:
+  - rid: 1209875750580912495
+  references:
+    version: 2
+    RefIds:
+    - rid: 1209875750580912495
+      type: {class: Addition, ns: RPG.MathFormula, asm: RPG.MathGraphSystem}
+      data:
+        values:
+        - rid: 1209875750580912496
+        - rid: 1209875750580912497
+    - rid: 1209875750580912496
+      type: {class: Multiply, ns: RPG.MathFormula, asm: RPG.MathGraphSystem}
+      data:
+        values:
+        - rid: 1209875750580912498
+        - rid: 1209875750580912499
+    - rid: 1209875750580912497
+      type: {class: Multiply, ns: RPG.MathFormula, asm: RPG.MathGraphSystem}
+      data:
+        values:
+        - rid: 1209875750580912500
+        - rid: 1209875750580912501
+    - rid: 1209875750580912498
+      type: {class: CoreStatsExpression, ns: RPG.Core.Character, asm: RPG.Core.Character}
+      data:
+        statData:
+          <StatId>k__BackingField: str
+    - rid: 1209875750580912499
+      type: {class: Constant, ns: RPG.MathFormula, asm: RPG.MathGraphSystem}
+      data:
+        a: 2
+    - rid: 1209875750580912500
+      type: {class: CoreStatsExpression, ns: RPG.Core.Character, asm: RPG.Core.Character}
+      data:
+        statData:
+          <StatId>k__BackingField: dex
+    - rid: 1209875750580912501
+      type: {class: Constant, ns: RPG.MathFormula, asm: RPG.MathGraphSystem}
+      data:
+        a: 2
