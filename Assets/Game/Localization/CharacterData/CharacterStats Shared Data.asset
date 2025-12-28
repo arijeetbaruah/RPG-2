@@ -1,0 +1,52 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b11a58205ec3474ca216360e9fa74a8, type: 3}
+  m_Name: CharacterStats Shared Data
+  m_EditorClassIdentifier: Unity.Localization::UnityEngine.Localization.Tables.SharedTableData
+  m_TableCollectionName: CharacterStats
+  m_TableCollectionNameGuidString: 5df707905c1c5714698de7307dbb006a
+  m_Entries:
+  - m_Id: 23067455488
+    m_Key: stat.str
+    m_Metadata:
+      m_Items: []
+  - m_Id: 175899504640
+    m_Key: stat.dex
+    m_Metadata:
+      m_Items: []
+  - m_Id: 223039287296
+    m_Key: stat.int
+    m_Metadata:
+      m_Items: []
+  - m_Id: 301195948032
+    m_Key: stat.vit
+    m_Metadata:
+      m_Items: []
+  - m_Id: 457203085312
+    m_Key: stat.wis
+    m_Metadata:
+      m_Items: []
+  - m_Id: 495614521344
+    m_Key: stat.luk
+    m_Metadata:
+      m_Items: []
+  m_Metadata:
+    m_Items: []
+  m_KeyGenerator:
+    rid: 1209875685281628445
+  references:
+    version: 2
+    RefIds:
+    - rid: 1209875685281628445
+      type: {class: DistributedUIDGenerator, ns: UnityEngine.Localization.Tables, asm: Unity.Localization}
+      data:
+        m_CustomEpoch: 1766668798451

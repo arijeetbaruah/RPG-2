@@ -1,0 +1,47 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6087a2481700ff44ba3093b44802b0bb, type: 3}
+  m_Name: test
+  m_EditorClassIdentifier: RPG.Core.Character::RPG.Core.Character.CharacterData
+  <CharacterId>k__BackingField: test
+  <Name>k__BackingField:
+    m_TableReference:
+      m_TableCollectionName: GUID:8a8653d8f19b62b46a95e261372b6966
+    m_TableEntryReference:
+      m_KeyId: 11809943552
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  _coreStats:
+  - statData:
+      <StatId>k__BackingField: str
+    Value: 0
+  - statData:
+      <StatId>k__BackingField: dex
+    Value: 2
+  - statData:
+      <StatId>k__BackingField: int
+    Value: 6
+  - statData:
+      <StatId>k__BackingField: wis
+    Value: 3
+  - statData:
+      <StatId>k__BackingField: vit
+    Value: 2
+  - statData:
+      <StatId>k__BackingField: luk
+    Value: 4
+  _derivedStats: []
+  references:
+    version: 2
+    RefIds: []

@@ -1,0 +1,126 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 611c3e394fc77ee43940a8a8c0e54739, type: 3}
+  m_Name: StatDatabase
+  m_EditorClassIdentifier: RPG.Core.Character::RPG.Core.Character.StatDatabase
+  _stats:
+  - <StatId>k__BackingField: str
+    <StatName>k__BackingField:
+      m_TableReference:
+        m_TableCollectionName: GUID:5df707905c1c5714698de7307dbb006a
+      m_TableEntryReference:
+        m_KeyId: 23067455488
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    <StatIcon>k__BackingField:
+      m_TableReference:
+        m_TableCollectionName: 
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+  - <StatId>k__BackingField: dex
+    <StatName>k__BackingField:
+      m_TableReference:
+        m_TableCollectionName: GUID:5df707905c1c5714698de7307dbb006a
+      m_TableEntryReference:
+        m_KeyId: 175899504640
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    <StatIcon>k__BackingField:
+      m_TableReference:
+        m_TableCollectionName: 
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+  - <StatId>k__BackingField: int
+    <StatName>k__BackingField:
+      m_TableReference:
+        m_TableCollectionName: GUID:5df707905c1c5714698de7307dbb006a
+      m_TableEntryReference:
+        m_KeyId: 223039287296
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    <StatIcon>k__BackingField:
+      m_TableReference:
+        m_TableCollectionName: 
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+  - <StatId>k__BackingField: wis
+    <StatName>k__BackingField:
+      m_TableReference:
+        m_TableCollectionName: GUID:5df707905c1c5714698de7307dbb006a
+      m_TableEntryReference:
+        m_KeyId: 457203085312
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    <StatIcon>k__BackingField:
+      m_TableReference:
+        m_TableCollectionName: 
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+  - <StatId>k__BackingField: vit
+    <StatName>k__BackingField:
+      m_TableReference:
+        m_TableCollectionName: GUID:5df707905c1c5714698de7307dbb006a
+      m_TableEntryReference:
+        m_KeyId: 301195948032
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    <StatIcon>k__BackingField:
+      m_TableReference:
+        m_TableCollectionName: 
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+  - <StatId>k__BackingField: luk
+    <StatName>k__BackingField:
+      m_TableReference:
+        m_TableCollectionName: GUID:5df707905c1c5714698de7307dbb006a
+      m_TableEntryReference:
+        m_KeyId: 495614521344
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    <StatIcon>k__BackingField:
+      m_TableReference:
+        m_TableCollectionName: 
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+  references:
+    version: 2
+    RefIds: []
