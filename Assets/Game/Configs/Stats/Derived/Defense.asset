@@ -12,12 +12,39 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d4a40292e02b3e4ab877866d0512b32, type: 3}
   m_Name: Defense
   m_EditorClassIdentifier: RPG.Core.Character::RPG.Core.Character.DerivedStats
-  statsModifiers:
-  - stat:
-      <StatId>k__BackingField: int
-    value: 2
-    operatorType: 0
-  - stat:
-      <StatId>k__BackingField: wis
-    value: 1
-    operatorType: 0
+  _expressions:
+  - rid: 1209875750580912463
+  references:
+    version: 2
+    RefIds:
+    - rid: 1209875750580912463
+      type: {class: Power, ns: RPG.MathFormula, asm: RPG.MathGraphSystem}
+      data:
+        baseValue:
+          rid: 1209875750580912464
+        exponent:
+          rid: 1209875750580912465
+    - rid: 1209875750580912464
+      type: {class: EulerConstant, ns: RPG.MathFormula, asm: RPG.MathGraphSystem}
+      data: 
+    - rid: 1209875750580912465
+      type: {class: Addition, ns: RPG.MathFormula, asm: RPG.MathGraphSystem}
+      data:
+        values:
+        - rid: 1209875750580912466
+    - rid: 1209875750580912466
+      type: {class: Addition, ns: RPG.MathFormula, asm: RPG.MathGraphSystem}
+      data:
+        values:
+        - rid: 1209875750580912467
+        - rid: 1209875750580912468
+    - rid: 1209875750580912467
+      type: {class: CoreStatsExpression, ns: RPG.Core.Character, asm: RPG.Core.Character}
+      data:
+        statData:
+          <StatId>k__BackingField: vit
+    - rid: 1209875750580912468
+      type: {class: CoreStatsExpression, ns: RPG.Core.Character, asm: RPG.Core.Character}
+      data:
+        statData:
+          <StatId>k__BackingField: dex
