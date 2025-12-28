@@ -19,8 +19,8 @@ namespace RPG.MathFormula
         /// <returns>The result of raising the evaluated base to the evaluated exponent.</returns>
         public override float Evaluate(float f, params object[] args)
         {
-            float b = baseValue.Evaluate(f);
-            float e = exponent.Evaluate(0);
+            float b = baseValue.Evaluate(f, args);
+            float e = exponent.Evaluate(0, args);
             return Mathf.Pow(b, e);
         }
     }
@@ -38,7 +38,7 @@ namespace RPG.MathFormula
         /// <returns>Euler's number e raised to the inner power expression's evaluated value.</returns>
         public override float Evaluate(float f, params object[] args)
         {
-            float finalPower = power.Evaluate(f);
+            float finalPower = power.Evaluate(f, args);
             
             return Mathf.Exp(finalPower);
         }

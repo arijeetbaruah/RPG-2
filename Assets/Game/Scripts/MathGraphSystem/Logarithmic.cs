@@ -21,8 +21,19 @@ namespace RPG.MathFormula
         /// <returns>The logarithm of max(evaluated power, 0.0001) using the evaluated base.</returns>
         public override float Evaluate(float f, params object[] args)
         {
-            var baseVal = baseValue.Evaluate(0);
-            var pwrVal = powerValue.Evaluate(0);
+            if (baseValue == null || powerValue == null)
+            {
+                Debug.LogWarning("Logarithmic: Base or Power is null");
+                return 0;
+            }
+            
+            var baseVal = baseValue.Evaluate(0, args);
+            var pwrVal = powerValue.Evaluate(0, args);
+            
+            // Validate base: must be > 0 and != 1
+            if (baseVal <= 0f || Mathf.Approximately(baseVal, 1f))
+                return 0f;
+            
             return Mathf.Log(Mathf.Max(pwrVal, min), baseVal);
         }
     }
@@ -44,8 +55,8 @@ namespace RPG.MathFormula
         /// <returns>The input value constrained to be greater than or equal to the evaluated minimum and less than or equal to the evaluated maximum.</returns>
         public override float Evaluate(float f, params object[] args)
         {
-            float minValue = min.Evaluate(0);
-            float maxValue = max.Evaluate(0);
+            float minValue = min.Evaluate(0, args);
+            float maxValue = max.Evaluate(0, args);
             return Mathf.Clamp(f, minValue, maxValue);
         }
     }

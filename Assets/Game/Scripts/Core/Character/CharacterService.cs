@@ -6,7 +6,7 @@ namespace RPG.Core.Character
 {
     public class CharacterService : IService
     {
-        public Dictionary<CharacterData, Character> _characters = new ();
+        private Dictionary<CharacterData, Character> _characters = new ();
 
         /// <summary>
         /// Adds a character to the service's character registry using its CharacterData as the key.
@@ -14,7 +14,16 @@ namespace RPG.Core.Character
         /// <param name="character">The Character to add; its CharacterData will be used as the dictionary key.</param>
         public void AddCharacter(Character character)
         {
-            _characters.Add(character.CharacterData, character);
+            if (character == null || character.CharacterData == null)
+            {
+                Debug.LogError("Cannot add null character or character with null CharacterData");
+                return;
+            }
+            
+            if (!_characters.TryAdd(character.CharacterData, character))
+            {
+                Debug.LogError($"Character {character.CharacterData.Name} already added");
+            }
         }
 
         /// <summary>
@@ -31,10 +40,16 @@ namespace RPG.Core.Character
         /// <summary>
         /// Removes the character associated with the given CharacterData from the service.
         /// </summary>
-        /// <param name="character">The character whose entry (keyed by its CharacterData) will be removed.</param>
-        public void RemoveCharacter(Character character)
+        /// <param name="characterData">The character whose entry (keyed by its CharacterData) will be removed.</param>
+        public void RemoveCharacter(CharacterData character)
         {
-            _characters.Remove(character.CharacterData);
+            if (character == null)
+            {
+                Debug.LogError("Cannot add null CharacterData");
+                return;
+            }
+            
+            _characters.Remove(character);
         }
         
         /// <summary>
