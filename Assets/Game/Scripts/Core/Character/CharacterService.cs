@@ -10,7 +10,10 @@ namespace RPG.Core.Character
 
         public void AddCharacter(Character character)
         {
-            _characters.Add(character.CharacterData, character);
+            if (!_characters.TryAdd(character.CharacterData, character))
+            {
+                Debug.LogError($"Character {character.CharacterData.Name} already added");
+            }
         }
 
         public bool TryGetCharacter(CharacterData character, out Character characterData)
