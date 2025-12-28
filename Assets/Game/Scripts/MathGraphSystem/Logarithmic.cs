@@ -15,6 +15,12 @@ namespace RPG.MathFormula
         
         public override float Evaluate(float f, params object[] args)
         {
+            if (baseValue == null || powerValue == null)
+            {
+                Debug.LogWarning("Logarithmic: Base or Power is null");
+                return 0;
+            }
+            
             var baseVal = baseValue.Evaluate(0, args);
             var pwrVal = powerValue.Evaluate(0, args);
             
