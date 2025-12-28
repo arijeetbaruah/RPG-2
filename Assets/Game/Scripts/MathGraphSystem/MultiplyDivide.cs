@@ -32,7 +32,14 @@ namespace RPG.MathFormula
             float value = f;
             foreach (MathExpression valueExpression in values)
             {
-                value /= valueExpression.Evaluate(0, args);
+                float divisor = valueExpression.Evaluate(0);
+                if (Mathf.Approximately(divisor, 0f))
+                {
+                    Debug.LogError("Division by zero attempted in Divide expression");
+                    return 0;
+                }
+                
+                value /= divisor;
             }
             
             return value;
