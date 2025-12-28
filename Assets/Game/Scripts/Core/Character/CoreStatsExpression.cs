@@ -13,15 +13,25 @@ namespace RPG.Core.Character
             if (args.Any(a => a is Character))
             {
                 Character character = (Character)args.First(a => a is Character);
-                
-                return character.CharacterData.CoreStats[statData];
+
+                if (!character.CharacterData.CoreStats.TryGetValue(statData, out int stat))
+                {
+                    stat = 0;
+                }
+
+                return stat;
             }
             
             if  (args.Any(a => a is CharacterData))
             {
                 CharacterData characterData = (CharacterData)args.First(a => a is CharacterData);
 
-                return characterData.CoreStats[statData];
+                if (!characterData.CoreStats.TryGetValue(statData, out int stat))
+                {
+                    stat = 0;
+                }
+
+                return stat;
             }
             
             return 0;
