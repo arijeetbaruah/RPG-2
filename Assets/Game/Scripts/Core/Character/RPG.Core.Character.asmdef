@@ -1,0 +1,18 @@
+{
+    "name": "RPG.Core.Character",
+    "rootNamespace": "RPG.Core.Character",
+    "references": [
+        "GUID:eec0964c48f6f4e40bc3ec2257ccf8c5",
+        "GUID:73a7751c7b4c18144a06a476c2b7f372",
+        "GUID:6f3b93f689e7bc7448263db725c5c076"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
