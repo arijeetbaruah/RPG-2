@@ -1,4 +1,3 @@
-using System.Linq;
 using UnityEngine;
 
 namespace RPG.MathFormula
@@ -32,7 +31,7 @@ namespace RPG.MathFormula
             float value = f;
             foreach (MathExpression valueExpression in values)
             {
-                float divisor = valueExpression.Evaluate(0);
+                float divisor = valueExpression.Evaluate(0, args);
                 if (Mathf.Approximately(divisor, 0f))
                 {
                     Debug.LogError("Division by zero attempted in Divide expression");

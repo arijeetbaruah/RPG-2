@@ -6,10 +6,16 @@ namespace RPG.Core.Character
 {
     public class CharacterService : IService
     {
-        public Dictionary<CharacterData, Character> _characters = new ();
+        private Dictionary<CharacterData, Character> _characters = new ();
 
         public void AddCharacter(Character character)
         {
+            if (character == null || character.CharacterData == null)
+            {
+                Debug.LogError("Cannot add null character or character with null CharacterData");
+                return;
+            }
+            
             if (!_characters.TryAdd(character.CharacterData, character))
             {
                 Debug.LogError($"Character {character.CharacterData.Name} already added");
@@ -21,9 +27,15 @@ namespace RPG.Core.Character
             return _characters.TryGetValue(character, out characterData);
         }
 
-        public void RemoveCharacter(Character character)
+        public void RemoveCharacter(CharacterData character)
         {
-            _characters.Remove(character.CharacterData);
+            if (character == null)
+            {
+                Debug.LogError("Cannot add null CharacterData");
+                return;
+            }
+            
+            _characters.Remove(character);
         }
         
         public void Initialize()
