@@ -9,6 +9,6 @@ namespace RPG.Core.Character
     {
         public IReadOnlyList<DerivedStats> Stats => _stats;
         
-        [SerializeReference] private List<DerivedStats> _stats = new();
+        [SerializeField] private List<DerivedStats> _stats = new();
     }
 }
