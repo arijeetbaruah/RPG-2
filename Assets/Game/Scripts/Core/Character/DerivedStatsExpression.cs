@@ -14,6 +14,10 @@ namespace RPG.Core.Character
         /// </summary>
         /// <param name="f">Unused numeric input (ignored by this expression).</param>
         /// <param name="args">A set of objects among which a Character may be provided; the first Character encountered is used.</param>
+        /// <summary>
+        /// Evaluates the configured derived stat for the first Character found in the provided arguments.
+        /// </summary>
+        /// <param name="args">A sequence of objects to search for a Character; the first matching Character is used.</param>
         /// <returns>The value of the configured derived stat for the first Character in <paramref name="args"/>, or 0 if no Character is present.</returns>
         public override float Evaluate(params object[] args)
         {

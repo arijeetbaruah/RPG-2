@@ -16,7 +16,11 @@ namespace RPG.MathFormula
         /// </summary>
         /// <param name="f">Input passed to evaluate the base expression.</param>
         /// <param name="args">Additional arguments (not used).</param>
-        /// <returns>The result of raising the evaluated base to the evaluated exponent.</returns>
+        /// <summary>
+        /// Computes the base expression raised to the exponent expression using the provided evaluation arguments.
+        /// </summary>
+        /// <param name="args">Arguments forwarded to both the base and exponent expressions when they are evaluated.</param>
+        /// <returns>The value of the base expression raised to the power of the exponent expression.</returns>
         public override float Evaluate(params object[] args)
         {
             float b = baseValue.Evaluate(args);
@@ -35,7 +39,11 @@ namespace RPG.MathFormula
         /// Computes e raised to the value of the contained power expression evaluated at the given input.
         /// </summary>
         /// <param name="f">Input value passed to the inner power expression for evaluation.</param>
-        /// <returns>Euler's number e raised to the inner power expression's evaluated value.</returns>
+        /// <summary>
+        /// Computes e raised to the value of the inner power expression.
+        /// </summary>
+        /// <param name="args">Arguments forwarded to the inner power expression's Evaluate method.</param>
+        /// <returns>The value of e raised to the inner expression's evaluated value.</returns>
         public override float Evaluate(params object[] args)
         {
             float finalPower = power.Evaluate(args);
