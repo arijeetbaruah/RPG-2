@@ -1,4 +1,4 @@
-// Author: Daniele Giardini - http://www.demigiant.com
+﻿// Author: Daniele Giardini - http://www.demigiant.com
 // Created: 2018/07/13
 
 #if true // MODULE_MARKER
@@ -257,7 +257,6 @@ namespace DG.Tweening
         /// <param name="pathMode">Controls how the Rigidbody is oriented and followed along the path.</param>
         /// <returns>
         /// A TweenerCore configured to update the Rigidbody's position using MovePosition; its PathOptions have been marked as a Rigidbody path and the mode set to <paramref name="pathMode"/>.
-        —
         internal static TweenerCore<Vector3, Path, PathOptions> DOPath(
             this Rigidbody target, Path path, float duration, PathMode pathMode = PathMode.Full3D
         )
