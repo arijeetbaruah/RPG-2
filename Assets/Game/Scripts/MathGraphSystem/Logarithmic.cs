@@ -67,7 +67,7 @@ namespace RPG.MathFormula
         {
             if (value == null || min == null || max == null)
             {
-                Debug.LogWarning("Clamp: Base or Power is null");
+                Debug.LogWarning("Clamp: value, min, or max is null");
                 return 0;
             }
             

@@ -9,10 +9,6 @@ namespace RPG.Core.Character
         public Stat statData;
         
         /// <summary>
-        /// Resolves a core stat value from the provided Character or CharacterData arguments.
-        /// </summary>
-        /// <param name="args">An array inspected for a Character or CharacterData; the first matching instance is used to look up the core stat identified by <c>statData</c>.</param>
-        /// <summary>
         /// Resolve the core stat value identified by <c>statData</c> from the first Character or CharacterData found in the provided arguments.
         /// </summary>
         /// <param name="args">Objects to search for a Character or CharacterData; the first matching instance is used as the stat source.</param>
