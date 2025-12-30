@@ -9,12 +9,11 @@ namespace RPG.Core.Character
         public Stat statData;
         
         /// <summary>
-        /// Resolves a core stat value from the provided Character or CharacterData arguments.
+        /// Resolve the core stat value identified by <c>statData</c> from the first Character or CharacterData found in the provided arguments.
         /// </summary>
-        /// <param name="f">Unused placeholder float parameter.</param>
-        /// <param name="args">An array inspected for a Character or CharacterData; the first matching instance is used to look up the core stat identified by <c>statData</c>.</param>
-        /// <returns>The value of the core stat named by <c>statData</c> from the first Character or CharacterData found in <paramref name="args"/>, or <c>0</c> if neither is present.</returns>
-        public override float Evaluate(float f, params object[] args)
+        /// <param name="args">Objects to search for a Character or CharacterData; the first matching instance is used as the stat source.</param>
+        /// <returns>The core stat value as a float: the value for <c>statData</c> from the first matching Character or CharacterData in <paramref name="args"/>, or <c>0</c> if none is found.</returns>
+        public override float Evaluate(params object[] args)
         {
             if (args.Any(a => a is Character))
             {

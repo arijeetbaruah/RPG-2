@@ -15,14 +15,18 @@ namespace RPG.MathFormula
         /// Computes a final numeric value by applying each configured MathExpression in sequence to a running result using the provided arguments.
         /// </summary>
         /// <param name="args">Optional additional values passed to each MathExpression during evaluation.</param>
-        /// <returns>The resulting float after all expressions have been applied.</returns>
+        /// <summary>
+        /// Evaluates the formula by applying each contained MathExpression in sequence.
+        /// </summary>
+        /// <param name="args">Optional arguments forwarded to each MathExpression during evaluation.</param>
+        /// <returns>The final float value produced after all expressions have been applied.</returns>
         public float Evaluate(params object[] args)
         {
             float result = 0f;
 
             foreach (MathExpression expression in _expressions)
             {
-                result = expression.Evaluate(result, args);
+                result = expression.Evaluate(args);
             }
             
             return result;
@@ -50,7 +54,11 @@ namespace RPG.MathFormula
 /// </summary>
 /// <param name="f">The input value to transform (the running result passed into this expression).</param>
 /// <param name="args">Optional expression-specific arguments that may affect evaluation.</param>
-/// <returns>The resulting float after applying this expression to <paramref name="f"/>.</returns>
-public abstract float Evaluate(float f, params object[] args);
+/// <summary>
+/// Evaluates this math expression using the supplied optional arguments.
+/// </summary>
+/// <param name="args">Optional contextual values (for example variables or runtime inputs) consumed by the expression; implementations may ignore or interpret these values as needed.</param>
+/// <returns>The float result produced by the expression.</returns>
+public abstract float Evaluate(params object[] args);
     }
 }

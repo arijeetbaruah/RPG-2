@@ -15,13 +15,17 @@ namespace RPG.MathFormula
         /// </summary>
         /// <param name="f">Initial value used as the starting accumulator.</param>
         /// <param name="args">Additional evaluation arguments (not used by this implementation).</param>
-        /// <returns>The initial value `f` plus the sum of each element in `values` evaluated with an input of 0.</returns>
-        public override float Evaluate(float f, params object[] args)
+        /// <summary>
+        /// Calculates the sum of all child expressions evaluated with the provided arguments.
+        /// </summary>
+        /// <param name="args">Arguments forwarded to each child expression's Evaluate call.</param>
+        /// <returns>The sum of the evaluated values of all child expressions.</returns>
+        public override float Evaluate(params object[] args)
         {
-            float value = f;
+            float value = 0;
             foreach (MathExpression valueExpression in values)
             {
-                value += valueExpression.Evaluate(0, args);
+                value += valueExpression.Evaluate(args);
             }
             
             return value;
@@ -38,10 +42,13 @@ namespace RPG.MathFormula
         /// Subtracts the evaluated results of the contained expressions from the initial value.
         /// </summary>
         /// <param name="f">Initial value from which each contained expression's evaluated result is subtracted.</param>
-        /// <returns>The resulting value after successive subtractions of each contained expression (each evaluated with 0 as its input).</returns>
-        public override float Evaluate(float f, params object[] args)
+        /// <summary>
+        /// Computes the cumulative result of subtracting each contained expression (each evaluated with 0 as its first argument) from zero.
+        /// </summary>
+        /// <returns>The value after successive subtractions: zero minus the evaluation of each contained expression (each called with 0 as its first argument and the provided args).</returns>
+        public override float Evaluate(params object[] args)
         {
-            float value = f;
+            float value = 0;
             foreach (MathExpression valueExpression in values)
             {
                 value -= valueExpression.Evaluate(0, args);
@@ -59,8 +66,12 @@ namespace RPG.MathFormula
         /// <summary>
         /// Evaluate and return the stored constant value.
         /// </summary>
+        /// <summary>
+        /// Returns the stored constant value.
+        /// </summary>
+        /// <param name="args">Ignored.</param>
         /// <returns>The stored constant value `a`.</returns>
-        public override float Evaluate(float f, params object[] args)
+        public override float Evaluate(params object[] args)
         {
             return a;
         }
@@ -74,8 +85,11 @@ namespace RPG.MathFormula
         /// </summary>
         /// <param name="f">Ignored input value.</param>
         /// <param name="args">Ignored additional arguments.</param>
-        /// <returns>The value of Euler's number (e) as a float.</returns>
-        public override float Evaluate(float f, params object[] args)
+        /// <summary>
+        /// Gets Euler's number e.
+        /// </summary>
+        /// <returns>Euler's number e as a single-precision float.</returns>
+        public override float Evaluate(params object[] args)
         {
             return (float) Math.E;
         }
