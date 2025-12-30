@@ -11,7 +11,6 @@ namespace RPG.Core.Character
         /// <summary>
         /// Resolves a core stat value from the provided Character or CharacterData arguments.
         /// </summary>
-        /// <param name="f">Unused placeholder float parameter.</param>
         /// <param name="args">An array inspected for a Character or CharacterData; the first matching instance is used to look up the core stat identified by <c>statData</c>.</param>
         /// <summary>
         /// Resolve the core stat value identified by <c>statData</c> from the first Character or CharacterData found in the provided arguments.

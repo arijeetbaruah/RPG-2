@@ -47,7 +47,7 @@ namespace RPG.Core.Character
         {
             UpdateStats(_hpStats, delta);
 
-            if (CurrentHP == 0)
+            if (CurrentHP <= 0)
             {
                 OnDeathTriggered.Invoke(_character);
             }
@@ -76,6 +76,7 @@ namespace RPG.Core.Character
             
             var derivedStats = _data[stats];
             derivedStats.Current = Mathf.Clamp(derivedStats.Current + delta, 0, derivedStats.Max);
+            _data[stats] = derivedStats;
             
             OnStatChanged.Invoke(_character, stats, derivedStats.Current);
         }

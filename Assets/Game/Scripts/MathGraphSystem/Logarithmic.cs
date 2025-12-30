@@ -65,6 +65,12 @@ namespace RPG.MathFormula
         /// <returns>The evaluated value constrained to be greater than or equal to the evaluated minimum and less than or equal to the evaluated maximum.</returns>
         public override float Evaluate(params object[] args)
         {
+            if (value == null || min == null || max == null)
+            {
+                Debug.LogWarning("Clamp: Base or Power is null");
+                return 0;
+            }
+            
             float minValue = min.Evaluate(args);
             float maxValue = max.Evaluate(args);
             return Mathf.Clamp(value.Evaluate(args), minValue, maxValue);

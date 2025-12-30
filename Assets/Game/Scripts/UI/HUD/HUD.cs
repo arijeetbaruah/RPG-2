@@ -27,12 +27,25 @@ namespace RPG.UI.HUD
         /// </summary>
         private void Start()
         {
-            _player = GameObject.FindGameObjectWithTag("Player").GetComponent<Character>();
+            GameObject playerObject = GameObject.FindGameObjectWithTag("Player");
+            if (playerObject == null)
+            {
+                throw new System.Exception("Player not found");
+                return;
+            }
+            
+            _player = playerObject.GetComponent<Character>();
+            
             CharacterResourceHandler.OnStatChanged += OnStatChanged;
             
             OnStatChanged(_player, _hpStats, 0);
             OnStatChanged(_player, _manaStats, 0);
             OnStatChanged(_player, _staminaStats, 0);
+        }
+
+        private void OnDestroy()
+        {
+            CharacterResourceHandler.OnStatChanged -= OnStatChanged;
         }
 
         /// <summary>
