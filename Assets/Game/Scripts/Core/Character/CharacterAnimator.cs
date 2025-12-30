@@ -9,7 +9,7 @@ using UnityEngine.Playables;
 
 namespace RPG.Core.Character
 {
-    
+    [RequireComponent(typeof(Animator))]
     public class CharacterAnimator : MonoBehaviour
     {
         [ListDrawerSettings(Expanded = true),
@@ -52,7 +52,8 @@ namespace RPG.Core.Character
 
         private void OnDestroy()
         {
-            _playableGraph.Destroy();
+            if (_playableGraph.IsValid())
+                _playableGraph.Destroy();
         }
 
         private void OnBlendChanged()
