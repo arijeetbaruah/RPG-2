@@ -1,0 +1,18 @@
+{
+    "name": "RPG.UI.HUD",
+    "rootNamespace": "RPG.UI.HUD",
+    "references": [
+        "GUID:87a26eb7767ae0f4e9001b26399ac3f6",
+        "GUID:b8029b040efb19f47be48b4a84427d6f",
+        "GUID:6055be8ebefd69e48b49212b09b47b2f"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

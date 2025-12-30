@@ -15,12 +15,12 @@ namespace RPG.MathFormula
         /// <param name="args">Additional arguments (ignored by this implementation).</param>
         /// <returns>The product of the initial value and each contained expression's evaluated result.</returns>
         /// <remarks>Each contained expression is evaluated by calling Evaluate(0).</remarks>
-        public override float Evaluate(float f, params object[] args)
+        public override float Evaluate(params object[] args)
         {
-            float value = f;
+            float value = 1;
             foreach (MathExpression valueExpression in values)
             {
-                value *= valueExpression.Evaluate(0, args);
+                value *= valueExpression.Evaluate(args);
             }
             
             return value;
@@ -39,12 +39,12 @@ namespace RPG.MathFormula
         /// <param name="f">Initial value to be divided.</param>
         /// <param name="args">Additional arguments are ignored.</param>
         /// <returns>The resulting value after sequentially dividing by each expression's evaluated result.</returns>
-        public override float Evaluate(float f, params object[] args)
+        public override float Evaluate(params object[] args)
         {
-            float value = f;
+            float value = 1;
             foreach (MathExpression valueExpression in values)
             {
-                float divisor = valueExpression.Evaluate(0, args);
+                float divisor = valueExpression.Evaluate(args);
                 if (Mathf.Approximately(divisor, 0f))
                 {
                     Debug.LogError("Division by zero attempted in Divide expression");

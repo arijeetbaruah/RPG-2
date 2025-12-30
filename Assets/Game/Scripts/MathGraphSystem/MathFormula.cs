@@ -22,7 +22,7 @@ namespace RPG.MathFormula
 
             foreach (MathExpression expression in _expressions)
             {
-                result = expression.Evaluate(result, args);
+                result = expression.Evaluate(args);
             }
             
             return result;
@@ -51,6 +51,6 @@ namespace RPG.MathFormula
 /// <param name="f">The input value to transform (the running result passed into this expression).</param>
 /// <param name="args">Optional expression-specific arguments that may affect evaluation.</param>
 /// <returns>The resulting float after applying this expression to <paramref name="f"/>.</returns>
-public abstract float Evaluate(float f, params object[] args);
+public abstract float Evaluate(params object[] args);
     }
 }

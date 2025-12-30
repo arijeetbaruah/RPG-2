@@ -19,7 +19,7 @@ namespace RPG.MathFormula
         /// <param name="f">Ignored; this method evaluates its own sub-expressions instead of using the input value.</param>
         /// <param name="args">Ignored.</param>
         /// <returns>The logarithm of max(evaluated power, 0.0001) using the evaluated base.</returns>
-        public override float Evaluate(float f, params object[] args)
+        public override float Evaluate(params object[] args)
         {
             if (baseValue == null || powerValue == null)
             {
@@ -27,8 +27,8 @@ namespace RPG.MathFormula
                 return 0;
             }
             
-            var baseVal = baseValue.Evaluate(0, args);
-            var pwrVal = powerValue.Evaluate(0, args);
+            var baseVal = baseValue.Evaluate(args);
+            var pwrVal = powerValue.Evaluate(args);
             
             // Validate base: must be > 0 and != 1
             if (baseVal <= 0f || Mathf.Approximately(baseVal, 1f))
@@ -42,6 +42,9 @@ namespace RPG.MathFormula
     public class Clamp : MathExpression
     {
         [SerializeReference]
+        public MathExpression value;
+        
+        [SerializeReference]
         public MathExpression min;
 
         [SerializeReference]
@@ -53,11 +56,11 @@ namespace RPG.MathFormula
         /// <param name="f">Value to be clamped.</param>
         /// <param name="args">Additional arguments; ignored by this implementation.</param>
         /// <returns>The input value constrained to be greater than or equal to the evaluated minimum and less than or equal to the evaluated maximum.</returns>
-        public override float Evaluate(float f, params object[] args)
+        public override float Evaluate(params object[] args)
         {
-            float minValue = min.Evaluate(0, args);
-            float maxValue = max.Evaluate(0, args);
-            return Mathf.Clamp(f, minValue, maxValue);
+            float minValue = min.Evaluate(args);
+            float maxValue = max.Evaluate(args);
+            return Mathf.Clamp(value.Evaluate(args), minValue, maxValue);
         }
     }
 }
