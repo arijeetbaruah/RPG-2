@@ -12,6 +12,8 @@ namespace RPG.Core.Character
     [RequireComponent(typeof(Animator))]
     public class CharacterAnimator : MonoBehaviour
     {
+        private const int MAX_ANIMATION_LENGTH = 10;
+        
         [ListDrawerSettings(Expanded = true),
          OnValueChanged(nameof(OnBlendChanged), IncludeChildren = true),
          SerializeField]
@@ -27,7 +29,7 @@ namespace RPG.Core.Character
             _playableGraph = PlayableGraph.Create("Animator");
             _playableGraph.SetTimeUpdateMode(DirectorUpdateMode.GameTime);
             
-            _mixer = AnimationMixerPlayable.Create(_playableGraph, 10);
+            _mixer = AnimationMixerPlayable.Create(_playableGraph, MAX_ANIMATION_LENGTH);
             Animator animator = gameObject.GetComponent<Animator>();
             
             var output = AnimationPlayableOutput.Create(_playableGraph, "Animation", animator);
@@ -38,6 +40,11 @@ namespace RPG.Core.Character
 
             foreach (var _idleAnimation in _idleAnimations)
             {
+                if (_idleAnimation.clip == null)
+                {
+                    Debug.LogWarning("Null animation clip found in _idleAnimations array, skipping.");
+                    continue;
+                }
                 AddAnimation(_idleAnimation.clip);
             }
         }
@@ -79,6 +86,12 @@ namespace RPG.Core.Character
 
         public void AddAnimation(AnimationClip clip)
         {
+            if (clip == null)
+            {
+                Debug.LogError("Cannot add null animation clip");
+                return;
+            }
+            
             if (_animationIndex.ContainsKey(clip))
             {
                 Debug.LogWarning($"Animation Clip {clip.name} has already been added");
@@ -87,12 +100,23 @@ namespace RPG.Core.Character
             
             var clipPlayable = AnimationClipPlayable.Create(_playableGraph, clip);
             int index = _animationIndex.Count;
+            if (index >= _mixer.GetInputCount())
+            {
+                Debug.LogError($"Cannot add animation clip {clip.name}: mixer input count limit reached");
+                return;
+            }
             _playableGraph.Connect(clipPlayable, 0, _mixer, index);
             _animationIndex.Add(clip, index);
         }
 
         public void SetAnimationWeight(AnimationClip clip, float weight)
         {
+            if (clip == null)
+            {
+                Debug.LogError("Cannot set weight for null animation clip");
+                return;
+            }
+            
             if (!_animationIndex.TryGetValue(clip, out int animationIndex))
             {
                 Debug.LogError($"Animation Clip {clip.name} has not been added");
