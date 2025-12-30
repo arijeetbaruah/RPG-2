@@ -521,6 +521,106 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1248207917
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: e8e254ef68a4a604ca1d84678f6eae8b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: e8e254ef68a4a604ca1d84678f6eae8b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: e8e254ef68a4a604ca1d84678f6eae8b, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: e8e254ef68a4a604ca1d84678f6eae8b, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: e8e254ef68a4a604ca1d84678f6eae8b, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: e8e254ef68a4a604ca1d84678f6eae8b, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: e8e254ef68a4a604ca1d84678f6eae8b, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: e8e254ef68a4a604ca1d84678f6eae8b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: e8e254ef68a4a604ca1d84678f6eae8b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: e8e254ef68a4a604ca1d84678f6eae8b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: e8e254ef68a4a604ca1d84678f6eae8b, type: 3}
+      propertyPath: m_Name
+      value: Maria J J Ong@Idle
+      objectReference: {fileID: 0}
+    - target: {fileID: 2559285840627121667, guid: e8e254ef68a4a604ca1d84678f6eae8b, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.10479836
+      objectReference: {fileID: 0}
+    - target: {fileID: 2559285840627121667, guid: e8e254ef68a4a604ca1d84678f6eae8b, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.23089916
+      objectReference: {fileID: 0}
+    - target: {fileID: 6341119541397085964, guid: e8e254ef68a4a604ca1d84678f6eae8b, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.26357266
+      objectReference: {fileID: 0}
+    - target: {fileID: 6341119541397085964, guid: e8e254ef68a4a604ca1d84678f6eae8b, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.016761273
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: e8e254ef68a4a604ca1d84678f6eae8b, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1248207919}
+  m_SourcePrefab: {fileID: 100100000, guid: e8e254ef68a4a604ca1d84678f6eae8b, type: 3}
+--- !u!1 &1248207918 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: e8e254ef68a4a604ca1d84678f6eae8b, type: 3}
+  m_PrefabInstance: {fileID: 1248207917}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1248207919
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1248207918}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 205cf48857f90b443bd6a5784ae7886c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: RPG.Core.Character::RPG.Core.Character.CharacterAnimator
+  _idleAnimations:
+  - clip: {fileID: 7400000, guid: 607b602e5b421aa4281d28d008d25c8f, type: 2}
+    weight: 0.31848085
+  - clip: {fileID: 7400000, guid: fa894c6d105592646886d21d935739a8, type: 2}
+    weight: 0.46774942
+  - clip: {fileID: 7400000, guid: a32699f0c86ecb646b865bba2dc48368, type: 2}
+    weight: 0.21376973
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -530,3 +630,4 @@ SceneRoots:
   - {fileID: 832575519}
   - {fileID: 1024231291}
   - {fileID: 579143251}
+  - {fileID: 1248207917}
