@@ -24,6 +24,9 @@ namespace RPG.Core.Character
 
         private Dictionary<AnimationClip, int> _animationIndex = new();
         
+        /// <summary>
+        /// Initializes the PlayableGraph, creates an AnimationMixerPlayable and output using the GameObject's Animator, starts the graph, and registers configured idle animations with the mixer.
+        /// </summary>
         private void Start()
         {
             _playableGraph = PlayableGraph.Create("Animator");
@@ -49,6 +52,9 @@ namespace RPG.Core.Character
             }
         }
 
+        /// <summary>
+        /// Apply the current weights from the _idleAnimations array to the animation mixer so each clip's input weight matches its AnimationBlend.weight.
+        /// </summary>
         private void Update()
         {
             foreach (var animation in _idleAnimations)
@@ -57,12 +63,21 @@ namespace RPG.Core.Character
             }
         }
 
+        /// <summary>
+        /// Releases the PlayableGraph created by this component to clean up its native animation resources.
+        /// </summary>
         private void OnDestroy()
         {
             if (_playableGraph.IsValid())
                 _playableGraph.Destroy();
         }
 
+        /// <summary>
+        /// Normalizes the weights of the idle animation blends so their sum equals 1.
+        /// </summary>
+        /// <remarks>
+        /// If the idle blend array is null, empty, or the total weight is less than or equal to zero, no changes are made. Each element's weight in the serialized array is updated in-place.
+        /// </remarks>
         private void OnBlendChanged()
         {
             if (_idleAnimations == null || _idleAnimations.Length == 0)
@@ -84,6 +99,13 @@ namespace RPG.Core.Character
             }
         }
 
+        /// <summary>
+        /// Adds the given animation clip to the animator's mixer and records its input index for future weight updates.
+        /// </summary>
+        /// <param name="clip">The animation clip to register and connect into the mixer's next available input.</param>
+        /// <remarks>
+        /// If the clip has already been added, the method logs a warning and does nothing.
+        /// </remarks>
         public void AddAnimation(AnimationClip clip)
         {
             if (clip == null)
@@ -109,6 +131,12 @@ namespace RPG.Core.Character
             _animationIndex.Add(clip, index);
         }
 
+        /// <summary>
+        /// Sets the mixer input weight for a previously added animation clip.
+        /// </summary>
+        /// <param name="clip">The animation clip whose mixer input weight to set.</param>
+        /// <param name="weight">The blend weight to assign to the clip's mixer input (typically between 0 and 1; values outside this range are applied as-is).</param>
+        /// <remarks>If the clip has not been added to the animator, the method returns without changing any weights.</remarks>
         public void SetAnimationWeight(AnimationClip clip, float weight)
         {
             if (clip == null)
