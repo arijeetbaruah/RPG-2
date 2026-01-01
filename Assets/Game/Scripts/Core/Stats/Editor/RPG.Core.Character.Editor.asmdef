@@ -1,8 +1,8 @@
 {
-    "name": "RPG.Core.Character.Editor",
-    "rootNamespace": "",
+    "name": "RPG.Core.Stats.Editor",
+    "rootNamespace": "RPG.Core.Stats",
     "references": [
-        "GUID:87a26eb7767ae0f4e9001b26399ac3f6",
+        "GUID:3888811e32ad58a46bd8a5014155363b",
         "GUID:eec0964c48f6f4e40bc3ec2257ccf8c5",
         "GUID:73a7751c7b4c18144a06a476c2b7f372"
     ],
