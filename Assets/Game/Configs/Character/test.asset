@@ -22,6 +22,8 @@ MonoBehaviour:
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
+  _resistance: 7
+  _vurnability: 96
   _coreStats:
   - statData:
       <StatId>k__BackingField: str
@@ -41,7 +43,9 @@ MonoBehaviour:
   - statData:
       <StatId>k__BackingField: luk
     Value: 4
-  _derivedStats: []
+  _derivedStats:
+  - statData: {fileID: 11400000, guid: 359c4679e3bc24b49bb6cc38c3fc5771, type: 2}
+    Value: 3
   references:
     version: 2
     RefIds: []

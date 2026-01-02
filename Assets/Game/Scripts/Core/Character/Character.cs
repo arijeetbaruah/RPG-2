@@ -1,15 +1,24 @@
+using System.Collections.Generic;
+using RPG.Abilities;
+using RPG.AbilitySystem;
 using UnityEngine;
 
 namespace RPG.Core.Character
 {
+    
     [RequireComponent(typeof(CharacterResourceHandler))]
     public class Character : MonoBehaviour
     {
+        public static event System.Action<Character> OnResistanceTriggered = delegate { }; 
+        public static event System.Action<Character> OnVulnerabilityTriggered = delegate { }; 
+        
         public CharacterData CharacterData => _characterData;
         
         [SerializeField] private CharacterData _characterData;
+        private Dictionary<BaseAbility, int> _abilities = new();
         
         public CharacterResourceHandler CharacterResourceHandler { get; private set; }
+        public IReadOnlyDictionary<BaseAbility, int> Abilities => _abilities;
 
         /// <summary>
         /// Initializes the CharacterResourceHandler property by retrieving the CharacterResourceHandler component from the same GameObject.
@@ -17,6 +26,25 @@ namespace RPG.Core.Character
         private void Awake()
         {
             CharacterResourceHandler = GetComponent<CharacterResourceHandler>();
+        }
+
+        public void AddAbility(BaseAbility ability)
+        {
+            if (!_abilities.TryAdd(ability, 0))
+            {
+                Debug.LogWarning($"Ability {ability.name} already exists");
+            }
+        }
+
+        public void AbilityLevelUp(BaseAbility ability)
+        {
+            if (!_abilities.ContainsKey(ability))
+            {
+                Debug.LogError($"Ability {ability.name} does not exist");
+                return;
+            }
+            
+            _abilities[ability]++;
         }
 
         /// <summary>
@@ -32,6 +60,48 @@ namespace RPG.Core.Character
         {
             _characterData.DerivedStats.TryGetValue(stats, out var value);
             return stats.Evaluate(_characterData) + value;
+        }
+
+        public void TakeDamage(float dmg, DamageType damageType)
+        {
+            if (damageType == DamageType.None)
+            {
+                Debug.LogWarning("DamageType is None.");
+                return;
+            }
+            
+            float dmgMul = 1;
+            
+            if (CharacterData.Vulnerability.HasFlag(damageType))
+            {
+                dmgMul *= 2;
+                OnVulnerabilityTriggered.Invoke(this);
+            }
+            
+            if (CharacterData.Resistance.HasFlag(damageType))
+            {
+                dmgMul /= 2;
+                OnResistanceTriggered.Invoke(this);
+            }
+            
+            CharacterResourceHandler.UpdateHP(dmg * dmgMul);
+        }
+
+        public bool IsAbilityUnlocked(BaseAbility ability)
+        {
+            if (ability == null)
+            {
+                Debug.LogError($"Ability is null");
+                return false;
+            }
+
+            if (ability.Requirements == null)
+            {
+                Debug.LogError($"Ability {ability.name} does not have requirements");
+                return true;
+            }
+            
+            return ability.Requirements.EvaluateRequirements(this, ability);
         }
     }
 }

@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using RPG.Abilities;
 using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.Localization;
@@ -12,6 +13,15 @@ namespace RPG.Core.Character
     {
         [field:SerializeField] public string CharacterId { get; private set; }
         [field:SerializeField] public LocalizedString Name { get; private set; }
+
+        [TitleGroup("Resistances")]
+        [EnumToggleButtons, SerializeField, HideLabel]
+        private DamageType _resistance;
+        [TitleGroup("Vurnability")]
+        [EnumToggleButtons, SerializeField, HideLabel]
+        private DamageType _vulnerability;
+        [Space]
+        
         [InfoBox("Duplicate Core Stats", InfoMessageType.Error, VisibleIf = nameof(OnCoreStatChanged))]
         [SerializeField] private List<CharacterCoreStatsData> _coreStats;
 
@@ -19,6 +29,9 @@ namespace RPG.Core.Character
         [SerializeField] private List<CharacterDerivedStatsData> _derivedStats;
         
         private bool _duplicateCoreStats = false;
+
+        public DamageType Resistance => _resistance;
+        public DamageType Vulnerability => _vulnerability;
         
         public IReadOnlyDictionary<Stat, int> CoreStats => _coreStats.ToDictionary(s => s.statData, s => s.Value);
         public IReadOnlyDictionary<DerivedStats, int> DerivedStats => _derivedStats.ToDictionary(s => s.statData, s => s.Value);
