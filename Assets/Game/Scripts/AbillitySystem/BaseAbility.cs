@@ -13,7 +13,7 @@ namespace RPG.AbilitySystem
         [SerializeField] private LocalizedString abilityDescription;
         
         [Header("Mastery")]
-        [SerializeField] private List<int> masteryThresholds;
+        [SerializeField] private List<int> masteryThresholds = new List<int>() { 0 };
         
         [Header("Cost")]
         [SerializeField] private DerivedStats statUsed;

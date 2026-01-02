@@ -16,10 +16,10 @@ namespace RPG.Abilities
                 BaseAbility ability = (BaseAbility)args.FirstOrDefault(a => a is BaseAbility);
                 Character character = (Character)args.FirstOrDefault(a => a is Character);
 
-                if (character.Abilities.Any(a => a.Ability == ability))
+                if (character.Abilities.ContainsKey(ability))
                 {
-                    var mastery = character.Abilities.FirstOrDefault(a => a.Ability == ability);
-                    return ability.MasteryThresholds[Mathf.Clamp(mastery.MasteryLevel, 0, ability.MasteryThresholds.Count)];
+                    var mastery = character.Abilities[ability];
+                    return ability.MasteryThresholds[Mathf.Clamp(mastery, 0, ability.MasteryThresholds.Count - 1)];
                 }
                 
                 return ability.MasteryThresholds[0];

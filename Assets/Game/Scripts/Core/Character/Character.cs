@@ -12,10 +12,10 @@ namespace RPG.Core.Character
         public CharacterData CharacterData => _characterData;
         
         [SerializeField] private CharacterData _characterData;
-        private List<AbilityMastery> _abilities;
+        private Dictionary<BaseAbility, int> _abilities = new();
         
         public CharacterResourceHandler CharacterResourceHandler { get; private set; }
-        public IReadOnlyList<AbilityMastery> Abilities => _abilities;
+        public IReadOnlyDictionary<BaseAbility, int> Abilities => _abilities;
 
         /// <summary>
         /// Initializes the CharacterResourceHandler property by retrieving the CharacterResourceHandler component from the same GameObject.
@@ -23,6 +23,22 @@ namespace RPG.Core.Character
         private void Awake()
         {
             CharacterResourceHandler = GetComponent<CharacterResourceHandler>();
+        }
+
+        public void AddAbility(BaseAbility ability)
+        {
+            _abilities.Add(ability, 0);
+        }
+
+        public void AbilityLevelUp(BaseAbility ability)
+        {
+            if (!_abilities.ContainsKey(ability))
+            {
+                Debug.LogError($"Ability {ability.name} does not exist");
+                return;
+            }
+            
+            _abilities[ability]++;
         }
 
         /// <summary>
@@ -66,13 +82,6 @@ namespace RPG.Core.Character
         public bool IsAbilityUnlocked(BaseAbility ability)
         {
             return ability.Requirements.EvaluateRequirements(this, ability);
-        }
-
-        [System.Serializable]
-        public struct AbilityMastery
-        {
-            public BaseAbility Ability;
-            public int MasteryLevel;
         }
     }
 }
