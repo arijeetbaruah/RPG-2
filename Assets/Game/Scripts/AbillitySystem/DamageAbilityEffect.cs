@@ -17,14 +17,14 @@ namespace RPG.Abilities
         
         public override void Apply(AbilityContext context)
         {
-            if (context.ability is TargetingAbility damageAbility)
+            if (context.ability is TargetingAbility targetingAbility)
             {
-                float dmg = _damageFormula.Evaluate(context.user, damageAbility);
+                float dmg = _damageFormula.Evaluate(context.user, targetingAbility);
                 context.target.TakeDamage(dmg, _damageType);
             }
             else
             {
-                Debug.LogError($"{context.ability.name} is not a DamageAbility");
+                Debug.LogError($"{context.ability.name} is not a TargetingAbility");
             }
         }
     }

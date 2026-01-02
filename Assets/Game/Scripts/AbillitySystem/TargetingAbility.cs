@@ -20,7 +20,7 @@ namespace RPG.Abilities
         Necrotic    = 1 << 8
     }
     
-    [CreateAssetMenu(fileName = "BaseAbility", menuName = MENU_NAME + nameof(TargetingAbility))]
+    [CreateAssetMenu(fileName = "new TargetingAbility", menuName = MENU_NAME + nameof(TargetingAbility))]
     public class TargetingAbility : BaseAbility
     {
         [EnumToggleButtons, OnValueChanged(nameof(OnValueChanged))]

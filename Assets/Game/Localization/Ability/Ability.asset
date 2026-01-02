@@ -10,63 +10,63 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5be51871efa6c3e4eae1703925c8f5ac, type: 3}
-  m_Name: CharacterStats
+  m_Name: Ability
   m_EditorClassIdentifier: Unity.Localization.Editor::UnityEditor.Localization.StringTableCollection
-  m_SharedTableData: {fileID: 11400000, guid: 5df707905c1c5714698de7307dbb006a, type: 2}
+  m_SharedTableData: {fileID: 11400000, guid: 8c459b1e3971f5f4dbde05de498022b3, type: 2}
   m_Tables:
-  - {fileID: 11400000, guid: 62ce5b6fe4594ed4281d7522288af307, type: 2}
-  - {fileID: 11400000, guid: a4a6f4b30fbe1a34d89ed120bc508157, type: 2}
-  - {fileID: 11400000, guid: b88eeb68f25e7c5429ec602ebbb590a7, type: 2}
-  - {fileID: 11400000, guid: d539d62ee9ca5b449bc52e224f213860, type: 2}
+  - {fileID: 11400000, guid: b242e2b6a4cbfdf47aee70045302239c, type: 2}
+  - {fileID: 11400000, guid: 78803fb5a643a4947847c1c258d631be, type: 2}
+  - {fileID: 11400000, guid: 206d436afa49cd146af312270f5f704f, type: 2}
+  - {fileID: 11400000, guid: 3fedc2d20b79b054aba365f088083118, type: 2}
   m_Extensions:
-  - rid: 2917252899189555291
+  - rid: 2917252899189555300
   m_Group: String Table
   references:
     version: 2
     RefIds:
-    - rid: 2917252899189555291
+    - rid: 2917252899189555300
       type: {class: GoogleSheetsExtension, ns: UnityEditor.Localization.Plugins.Google, asm: Unity.Localization.Editor}
       data:
         m_Collection: {fileID: 11400000}
         m_SheetsServiceProvider: {fileID: 11400000, guid: f1d2fd1526243904394654c7894c1c3c, type: 2}
         m_SpreadsheetId: 1Bfg_zS6cxwTZMOOLqFZrZq5f5nrVJ7UMTP8BX-pO3ns
-        m_SheetId: 720908393
+        m_SheetId: 0
         m_Columns:
-        - rid: 2917252899189555293
-        - rid: 2917252899189555295
-        - rid: 2917252899189555296
-        - rid: 2917252899189555297
-        - rid: 2917252899189555298
+        - rid: 2917252899189555302
+        - rid: 2917252899189555303
+        - rid: 2917252899189555304
+        - rid: 2917252899189555305
+        - rid: 2917252899189555306
         m_RemoveMissingPulledKeys: 1
-    - rid: 2917252899189555293
+    - rid: 2917252899189555302
       type: {class: KeyColumn, ns: UnityEditor.Localization.Plugins.Google.Columns, asm: Unity.Localization.Editor}
       data:
         m_Column: A
-    - rid: 2917252899189555295
+    - rid: 2917252899189555303
       type: {class: LocaleColumn, ns: UnityEditor.Localization.Plugins.Google.Columns, asm: Unity.Localization.Editor}
       data:
         m_Column: B
         m_LocaleIdentifier:
           m_Code: en
         m_IncludeComments: 0
-    - rid: 2917252899189555296
+    - rid: 2917252899189555304
       type: {class: LocaleColumn, ns: UnityEditor.Localization.Plugins.Google.Columns, asm: Unity.Localization.Editor}
       data:
         m_Column: C
         m_LocaleIdentifier:
           m_Code: de
         m_IncludeComments: 0
-    - rid: 2917252899189555297
+    - rid: 2917252899189555305
       type: {class: LocaleColumn, ns: UnityEditor.Localization.Plugins.Google.Columns, asm: Unity.Localization.Editor}
       data:
         m_Column: D
         m_LocaleIdentifier:
-          m_Code: zh-Hans
+          m_Code: ja
         m_IncludeComments: 0
-    - rid: 2917252899189555298
+    - rid: 2917252899189555306
       type: {class: LocaleColumn, ns: UnityEditor.Localization.Plugins.Google.Columns, asm: Unity.Localization.Editor}
       data:
         m_Column: E
         m_LocaleIdentifier:
-          m_Code: ja
+          m_Code: zh-Hans
         m_IncludeComments: 0

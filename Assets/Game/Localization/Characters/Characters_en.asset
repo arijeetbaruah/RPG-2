@@ -21,7 +21,12 @@ MonoBehaviour:
   - m_Id: 11809943552
     m_Localized: test
     m_Metadata:
-      m_Items: []
+      m_Items:
+      - rid: 2917252899189555299
   references:
     version: 2
-    RefIds: []
+    RefIds:
+    - rid: 2917252899189555299
+      type: {class: Comment, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
+      data:
+        m_CommentText: test

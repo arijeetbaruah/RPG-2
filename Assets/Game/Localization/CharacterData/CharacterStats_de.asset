@@ -17,7 +17,31 @@ MonoBehaviour:
   m_SharedData: {fileID: 11400000, guid: 5df707905c1c5714698de7307dbb006a, type: 2}
   m_Metadata:
     m_Items: []
-  m_TableData: []
+  m_TableData:
+  - m_Id: 23067455488
+    m_Localized: "St\xE4rke"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 175899504640
+    m_Localized: Geschicklichkeit
+    m_Metadata:
+      m_Items: []
+  - m_Id: 223039287296
+    m_Localized: Intelligenz
+    m_Metadata:
+      m_Items: []
+  - m_Id: 301195948032
+    m_Localized: "Vitalit\xE4t"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 457203085312
+    m_Localized: Weisheit
+    m_Metadata:
+      m_Items: []
+  - m_Id: 495614521344
+    m_Localized: "Gl\xFCck"
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

@@ -10,16 +10,20 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
-  m_Name: Characters_zh-Hans
+  m_Name: Ability_en
   m_EditorClassIdentifier: Unity.Localization::UnityEngine.Localization.Tables.StringTable
   m_LocaleId:
-    m_Code: zh-Hans
-  m_SharedData: {fileID: 11400000, guid: 8a8653d8f19b62b46a95e261372b6966, type: 2}
+    m_Code: en
+  m_SharedData: {fileID: 11400000, guid: 8c459b1e3971f5f4dbde05de498022b3, type: 2}
   m_Metadata:
     m_Items: []
   m_TableData:
-  - m_Id: 11809943552
-    m_Localized: "\u6D4B\u8BD5"
+  - m_Id: 18181091328
+    m_Localized: Light Slash (Shortsword)
+    m_Metadata:
+      m_Items: []
+  - m_Id: 335299833856
+    m_Localized: You use your shortsword to slash your enemy
     m_Metadata:
       m_Items: []
   references:

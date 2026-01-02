@@ -11,12 +11,26 @@ namespace RPG.MathFormula
         
         public override float Evaluate(params object[] args)
         {
+            if (expressions == null || expressions.Length == 0)
+            {
+                return 0f; // or throw ArgumentException based on requirements
+            }
+            
             List<float> result = new List<float>();
             foreach (var expression in expressions)
             {
+                if (expression == null)
+                {
+                    Debug.LogWarning("Null expression in Max.Evaluate, skipping.");
+                    continue;
+                }
                 result.Add(expression.Evaluate(args));
             }
-            
+
+            if (result.Count == 0)
+            {
+                return 0f;
+            }
             return Mathf.Max(result.ToArray());
         }
     }
@@ -29,12 +43,26 @@ namespace RPG.MathFormula
         
         public override float Evaluate(params object[] args)
         {
+            if (expressions == null || expressions.Length == 0)
+            {
+                return 0f; // or throw ArgumentException based on requirements
+            }
+            
             List<float> result = new List<float>();
             foreach (var expression in expressions)
             {
+                if (expression == null)
+                {
+                    Debug.LogWarning("Null expression in Max.Evaluate, skipping.");
+                    continue;
+                }
                 result.Add(expression.Evaluate(args));
             }
             
+            if (result.Count == 0)
+            {
+                return 0f;
+            }
             return Mathf.Min(result.ToArray());
         }
     }
