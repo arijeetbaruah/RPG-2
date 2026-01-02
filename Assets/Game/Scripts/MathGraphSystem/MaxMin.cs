@@ -53,7 +53,7 @@ namespace RPG.MathFormula
             {
                 if (expression == null)
                 {
-                    Debug.LogWarning("Null expression in Max.Evaluate, skipping.");
+                    Debug.LogWarning("Null expression in Min.Evaluate, skipping.");
                     continue;
                 }
                 result.Add(expression.Evaluate(args));
