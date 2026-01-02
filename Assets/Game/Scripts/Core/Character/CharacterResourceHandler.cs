@@ -43,9 +43,20 @@ namespace RPG.Core.Character
         /// Adjusts the character's current HP by the given amount and triggers death if HP reaches zero.
         /// </summary>
         /// <param name="delta">Amount to add to current HP; positive increases HP, negative decreases HP.</param>
-        public void UpdateHP(float delta)
+        public void UpdateHP(float delta, float multiplier)
         {
-            UpdateStats(_hpStats, delta);
+            float finalDmg = delta * multiplier;
+
+            if (multiplier == 0.5f)
+            {
+                //TODO: Resistance
+            }
+            else if (multiplier == 2.0f)
+            {
+                //TODO: Vurnability
+            }
+            
+            UpdateStats(_hpStats, finalDmg);
 
             if (CurrentHP <= 0)
             {

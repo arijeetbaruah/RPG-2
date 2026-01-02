@@ -1,15 +1,21 @@
+using System.Collections.Generic;
+using RPG.Abilities;
+using RPG.AbilitySystem;
 using UnityEngine;
 
 namespace RPG.Core.Character
 {
+    
     [RequireComponent(typeof(CharacterResourceHandler))]
     public class Character : MonoBehaviour
     {
         public CharacterData CharacterData => _characterData;
         
         [SerializeField] private CharacterData _characterData;
+        private List<AbilityMastery> _abilities;
         
         public CharacterResourceHandler CharacterResourceHandler { get; private set; }
+        public IReadOnlyList<AbilityMastery> Abilities => _abilities;
 
         /// <summary>
         /// Initializes the CharacterResourceHandler property by retrieving the CharacterResourceHandler component from the same GameObject.
@@ -32,6 +38,41 @@ namespace RPG.Core.Character
         {
             _characterData.DerivedStats.TryGetValue(stats, out var value);
             return stats.Evaluate(_characterData) + value;
+        }
+
+        public void TakeDamage(float dmg, DamageType damageType)
+        {
+            if (damageType == DamageType.None)
+            {
+                Debug.LogWarning("DamageType is None.");
+                return;
+            }
+            
+            float dmgMul = 1;
+            
+            if (CharacterData.Vurnability.HasFlag(damageType))
+            {
+                dmgMul *= 2;
+            }
+            
+            if (CharacterData.Resistance.HasFlag(damageType))
+            {
+                dmgMul /= 2;
+            }
+            
+            CharacterResourceHandler.UpdateHP(dmg, dmgMul);
+        }
+
+        public bool IsAbilityUnlocked(BaseAbility ability)
+        {
+            return ability.Requirements.EvaluateRequirements(this, ability);
+        }
+
+        [System.Serializable]
+        public struct AbilityMastery
+        {
+            public BaseAbility Ability;
+            public int MasteryLevel;
         }
     }
 }

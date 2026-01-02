@@ -1,0 +1,35 @@
+using System.Collections.Generic;
+using RPG.Core.Character;
+using UnityEngine;
+using UnityEngine.Localization;
+
+namespace RPG.AbilitySystem
+{
+    //[CreateAssetMenu(fileName = "BaseAbility", menuName = "Game/BaseAbility")]
+    public abstract class BaseAbility : ScriptableObject
+    {
+        [SerializeField] private string abilityId;
+        [SerializeField] private LocalizedString abilityName;
+        [SerializeField] private LocalizedString abilityDescription;
+        
+        [Header("Mastery")]
+        [SerializeField] private List<int> masteryThresholds;
+        
+        [Header("Cost")]
+        [SerializeField] private DerivedStats statUsed;
+        [SerializeField] private int cost;
+        
+        [SerializeField] private float cooldown;
+        
+        [SerializeField] private RequirementSystem.Requirements requirements;
+        
+        public string AbilityId => abilityId;
+        public string AbilityName => abilityName.GetLocalizedString();
+        public LocalizedString AbilityDescription => abilityDescription;
+        public IReadOnlyList<int> MasteryThresholds => masteryThresholds; 
+        public DerivedStats StatUsed => statUsed;
+        public int Cost => cost;
+        public float Cooldown => cooldown;
+        public RequirementSystem.Requirements Requirements => requirements;
+    }
+}
