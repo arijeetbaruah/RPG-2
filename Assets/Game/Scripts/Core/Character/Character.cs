@@ -7,7 +7,7 @@ namespace RPG.Core.Character
 {
     
     [RequireComponent(typeof(CharacterResourceHandler))]
-    public class Character : MonoBehaviour
+    public class Character : MonoBehaviour, ICharacter
     {
         public static event System.Action<Character> OnResistanceTriggered = delegate { }; 
         public static event System.Action<Character> OnVulnerabilityTriggered = delegate { }; 
