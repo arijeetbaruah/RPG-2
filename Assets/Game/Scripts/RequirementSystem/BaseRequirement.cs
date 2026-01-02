@@ -13,11 +13,16 @@ namespace RPG.RequirementSystem
     [System.Serializable]
     public class Requirements
     {
-        [SerializeField, SerializeReference, OdinSerialize]
+        [SerializeField, SerializeReference]
         private List<BaseRequirement> BaseRequirements;
 
         public bool EvaluateRequirements(params object[] objects)
         {
+            if (BaseRequirements == null || BaseRequirements.Count == 0)
+            {
+                return true;
+            }
+            
             foreach (var requirement in BaseRequirements)
             {
                 if (!requirement.CheckRequirements(objects))

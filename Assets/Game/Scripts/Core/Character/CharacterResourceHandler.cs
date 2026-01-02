@@ -8,8 +8,6 @@ namespace RPG.Core.Character
     public class CharacterResourceHandler : MonoBehaviour
     {
         public static event Action<Character, DerivedStats, float> OnStatChanged = delegate { };
-        public static event Action<Character> OnResistanceTriggered = delegate { }; 
-        public static event Action<Character> OnVulnerabilityTriggered = delegate { }; 
         public static event Action<Character> OnDeathTriggered = delegate { };
         
         [SerializeField] private DerivedStats _hpStats;
@@ -45,20 +43,9 @@ namespace RPG.Core.Character
         /// Adjusts the character's current HP by the given amount and triggers death if HP reaches zero.
         /// </summary>
         /// <param name="delta">Amount to add to current HP; positive increases HP, negative decreases HP.</param>
-        public void UpdateHP(float delta, float multiplier)
+        public void UpdateHP(float delta)
         {
-            float finalDmg = delta * multiplier;
-
-            if (multiplier == 0.5f)
-            {
-                OnResistanceTriggered?.Invoke(_character);
-            }
-            else if (multiplier == 2.0f)
-            {
-                OnVulnerabilityTriggered?.Invoke(_character);
-            }
-            
-            UpdateStats(_hpStats, finalDmg);
+            UpdateStats(_hpStats, delta);
 
             if (CurrentHP <= 0)
             {

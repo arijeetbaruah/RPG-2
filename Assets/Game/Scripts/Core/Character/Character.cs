@@ -9,6 +9,9 @@ namespace RPG.Core.Character
     [RequireComponent(typeof(CharacterResourceHandler))]
     public class Character : MonoBehaviour
     {
+        public static event System.Action<Character> OnResistanceTriggered = delegate { }; 
+        public static event System.Action<Character> OnVulnerabilityTriggered = delegate { }; 
+        
         public CharacterData CharacterData => _characterData;
         
         [SerializeField] private CharacterData _characterData;
@@ -27,7 +30,10 @@ namespace RPG.Core.Character
 
         public void AddAbility(BaseAbility ability)
         {
-            _abilities.Add(ability, 0);
+            if (!_abilities.TryAdd(ability, 0))
+            {
+                Debug.LogWarning($"Ability {ability.name} already exists");
+            }
         }
 
         public void AbilityLevelUp(BaseAbility ability)
@@ -69,18 +75,32 @@ namespace RPG.Core.Character
             if (CharacterData.Vulnerability.HasFlag(damageType))
             {
                 dmgMul *= 2;
+                OnVulnerabilityTriggered.Invoke(this);
             }
             
             if (CharacterData.Resistance.HasFlag(damageType))
             {
                 dmgMul /= 2;
+                OnResistanceTriggered.Invoke(this);
             }
             
-            CharacterResourceHandler.UpdateHP(dmg, dmgMul);
+            CharacterResourceHandler.UpdateHP(dmg * dmgMul);
         }
 
         public bool IsAbilityUnlocked(BaseAbility ability)
         {
+            if (ability == null)
+            {
+                Debug.LogError($"Ability is null");
+                return false;
+            }
+
+            if (ability.Requirements == null)
+            {
+                Debug.LogError($"Ability {ability.name} does not have requirements");
+                return true;
+            }
+            
             return ability.Requirements.EvaluateRequirements(this, ability);
         }
     }

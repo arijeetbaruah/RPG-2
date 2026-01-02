@@ -24,7 +24,7 @@ namespace RPG.AbilitySystem
         [SerializeField] private RequirementSystem.Requirements requirements;
         
         public string AbilityId => abilityId;
-        public string AbilityName => abilityName.GetLocalizedString();
+        public string AbilityName => abilityName?.GetLocalizedString() ?? string.Empty;
         public LocalizedString AbilityDescription => abilityDescription;
         public IReadOnlyList<int> MasteryThresholds => masteryThresholds; 
         public DerivedStats StatUsed => statUsed;
