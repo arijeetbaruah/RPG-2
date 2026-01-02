@@ -8,6 +8,8 @@ namespace RPG.Core.Character
     public class CharacterResourceHandler : MonoBehaviour
     {
         public static event Action<Character, DerivedStats, float> OnStatChanged = delegate { };
+        public static event Action<Character> OnResistanceTriggered = delegate { }; 
+        public static event Action<Character> OnVulnerabilityTriggered = delegate { }; 
         public static event Action<Character> OnDeathTriggered = delegate { };
         
         [SerializeField] private DerivedStats _hpStats;
@@ -49,11 +51,11 @@ namespace RPG.Core.Character
 
             if (multiplier == 0.5f)
             {
-                //TODO: Resistance
+                OnResistanceTriggered?.Invoke(_character);
             }
             else if (multiplier == 2.0f)
             {
-                //TODO: Vurnability
+                OnVulnerabilityTriggered?.Invoke(_character);
             }
             
             UpdateStats(_hpStats, finalDmg);
