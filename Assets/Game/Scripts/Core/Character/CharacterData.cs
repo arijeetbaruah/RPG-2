@@ -19,7 +19,7 @@ namespace RPG.Core.Character
         private DamageType _resistance;
         [TitleGroup("Vurnability")]
         [EnumToggleButtons, SerializeField, HideLabel]
-        private DamageType _vurnability;
+        private DamageType _vulnerability;
         [Space]
         
         [InfoBox("Duplicate Core Stats", InfoMessageType.Error, VisibleIf = nameof(OnCoreStatChanged))]
@@ -31,7 +31,7 @@ namespace RPG.Core.Character
         private bool _duplicateCoreStats = false;
 
         public DamageType Resistance => _resistance;
-        public DamageType Vurnability => _vurnability;
+        public DamageType Vulnerability => _vulnerability;
         
         public IReadOnlyDictionary<Stat, int> CoreStats => _coreStats.ToDictionary(s => s.statData, s => s.Value);
         public IReadOnlyDictionary<DerivedStats, int> DerivedStats => _derivedStats.ToDictionary(s => s.statData, s => s.Value);

@@ -66,7 +66,7 @@ namespace RPG.Core.Character
             
             float dmgMul = 1;
             
-            if (CharacterData.Vurnability.HasFlag(damageType))
+            if (CharacterData.Vulnerability.HasFlag(damageType))
             {
                 dmgMul *= 2;
             }
