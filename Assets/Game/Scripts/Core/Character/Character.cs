@@ -86,6 +86,11 @@ namespace RPG.Core.Character
             
             CharacterResourceHandler.UpdateHP(dmg * dmgMul);
         }
+        
+        public void Heal(float dmg)
+        {
+            CharacterResourceHandler.UpdateHP(dmg);
+        }
 
         public bool IsAbilityUnlocked(BaseAbility ability)
         {

@@ -13,6 +13,7 @@ namespace RPG.Abilities
     public interface ICharacter
     {
         void TakeDamage(float dmg, DamageType damageType);
+        void Heal(float dmg);
     }
     
     public class AbilityContext
