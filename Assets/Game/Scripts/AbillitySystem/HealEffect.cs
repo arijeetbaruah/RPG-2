@@ -12,10 +12,16 @@ namespace RPG.Abilities
         
         public override void Apply(AbilityContext context)
         {
+            if (_damageFormula == null)
+            {
+                Debug.LogError($"HealEffect on {context.ability.name} has no formula configured");
+                return;
+            }
+            
             if (context.ability is TargetingAbility targetingAbility)
             {
                 float dmg = _damageFormula.Evaluate(context.user, targetingAbility);
-                context.target.Heal(dmg);
+                context.target?.Heal(dmg);
             }
             else
             {

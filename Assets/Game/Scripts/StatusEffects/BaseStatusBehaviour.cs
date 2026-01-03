@@ -23,6 +23,11 @@ namespace RPG.StatusEffects
 
         public StatusContext(ICharacter owner, StatusInstance instance)
         {
+            if (owner == null)
+                throw new System.ArgumentNullException(nameof(owner));
+            if (instance == null)
+                throw new System.ArgumentNullException(nameof(instance));
+            
             this.owner = owner;
             this.instance = instance;
         }

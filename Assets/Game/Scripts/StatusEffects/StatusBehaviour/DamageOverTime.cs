@@ -12,6 +12,12 @@ namespace RPG.StatusEffects
         
         public override void Execute(StatusContext context)
         {
+            if (damagePerStack == null)
+            {
+                Debug.LogError("DamageOverTime: damagePerStack is null");
+                return;
+            }
+            
             float damage = damagePerStack.Evaluate(context.owner) * context.instance.stacks;
             context.owner.TakeDamage(damage, damageType);
         }

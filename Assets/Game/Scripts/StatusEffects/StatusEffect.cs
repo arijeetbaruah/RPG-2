@@ -12,11 +12,11 @@ namespace RPG.StatusEffects
         [SerializeField] private LocalizedString displayName;
         
         [Header("Duration")]
-        [SerializeField] private int baseDuration;
+        [SerializeField, Min(1)] private int baseDuration = 1;
         
         [Header("Stacking")]
         [SerializeField] private StatusStackType stackType;
-        [SerializeField] private int maxStacks;
+        [SerializeField, Min(1)] private int maxStacks = 1;
         
         [Header("Timing")]
         [SerializeField] private StatusTiming tickTiming;
@@ -24,13 +24,13 @@ namespace RPG.StatusEffects
         [Header("Effects"), SerializeReference]
         [SerializeField] private BaseStatusBehaviour[] behaviours;
         
-        public string StatusId => statusId.GetLocalizedString();
-        public string DisplayName => displayName.GetLocalizedString();
+        public string StatusId => statusId?.GetLocalizedString() ?? string.Empty;
+        public string DisplayName => displayName?.GetLocalizedString() ?? string.Empty;
         public int BaseDuration => baseDuration;
         public StatusStackType StackType => stackType;
         public int MaxStacks => maxStacks;
         public StatusTiming TickTiming => tickTiming;
-        public IReadOnlyList<BaseStatusBehaviour> Behaviours => behaviours;
+        public IReadOnlyList<BaseStatusBehaviour> Behaviours => behaviours ?? System.Array.Empty<BaseStatusBehaviour>();
         
         public enum StatusStackType
         {

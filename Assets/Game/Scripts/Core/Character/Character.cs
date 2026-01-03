@@ -20,6 +20,11 @@ namespace RPG.Core.Character
         
         public CharacterResourceHandler CharacterResourceHandler { get; private set; }
         public IReadOnlyDictionary<BaseAbility, int> Abilities => _abilities;
+        public IReadOnlyList<StatusEffect> StatusEffects => _statusEffects;
+        
+        private List<StatusEffect> _statusEffects = new();
+
+        private int _additionalAPCostThisTurn = 0;
 
         /// <summary>
         /// Initializes the CharacterResourceHandler property by retrieving the CharacterResourceHandler component from the same GameObject.
@@ -65,12 +70,17 @@ namespace RPG.Core.Character
 
         public void ApplyStatusEffects(IStatusEffect effect)
         {
-            
+            _statusEffects.Add(effect as StatusEffect);
         }
 
         public void UpdateStats(DerivedStats stats, float delta)
         {
             CharacterResourceHandler.UpdateStats(stats, delta);
+        }
+
+        public void AddAdditionalCostThisTurn(float additionalAPCost)
+        {
+            _additionalAPCostThisTurn += (int) additionalAPCost;
         }
 
         public void TakeDamage(float dmg, DamageType damageType)

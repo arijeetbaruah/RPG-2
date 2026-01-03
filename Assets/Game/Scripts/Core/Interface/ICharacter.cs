@@ -28,5 +28,6 @@ namespace RPG.Core.Interfaces
         void Heal(float dmg);
         void UpdateStats(DerivedStats stats, float delta);
         void ApplyStatusEffects(IStatusEffect statusEffects);
+        void AddAdditionalCostThisTurn(float additionalAPCost);
     }
 }

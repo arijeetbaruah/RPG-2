@@ -10,6 +10,11 @@ namespace RPG.StatusEffects.Behaviour
         
         public override void Execute(StatusContext context)
         {
+            if (damagePerStack == null)
+            {
+                return;
+            }
+            
             float damage = damagePerStack.Evaluate(context.owner);
             context.owner.Heal(damage);
         }

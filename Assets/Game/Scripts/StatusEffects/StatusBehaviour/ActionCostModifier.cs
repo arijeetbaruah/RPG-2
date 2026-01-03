@@ -10,6 +10,7 @@ namespace RPG.StatusEffects.Behaviour
         
         public override void Execute(StatusContext context)
         {
+            context.owner.AddAdditionalCostThisTurn(extraCostPerStack.Evaluate(context.owner) * context.instance.stacks);
         }
     }
 }
