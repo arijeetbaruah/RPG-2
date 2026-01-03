@@ -12,8 +12,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1294166e6aa1ce64bae550f3b676c0cb, type: 3}
   m_Name: Bleed
   m_EditorClassIdentifier: RPG.StatusEffects::RPG.StatusEffects.StatusEffect
-  statusId: 
-  displayName: 
+  statusId:
+    m_TableReference:
+      m_TableCollectionName: GUID:f9db8255243a3764dbccea16e330cd97
+    m_TableEntryReference:
+      m_KeyId: 774653177856
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  displayName:
+    m_TableReference:
+      m_TableCollectionName: GUID:f9db8255243a3764dbccea16e330cd97
+    m_TableEntryReference:
+      m_KeyId: 774724481024
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
   baseDuration: 5
   stackType: 2
   maxStacks: 5

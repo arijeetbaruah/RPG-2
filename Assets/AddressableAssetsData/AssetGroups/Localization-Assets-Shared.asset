@@ -30,6 +30,11 @@ MonoBehaviour:
     m_ReadOnly: 1
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f9db8255243a3764dbccea16e330cd97
+    m_Address: Assets/Game/Localization/StatusEffects/StatusEffects Shared Data.asset
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 1
   m_Settings: {fileID: 11400000, guid: a1878edd71e87c14ca40bb8487eee5c2, type: 2}
   m_SchemaSet:
