@@ -8,7 +8,11 @@ namespace RPG.Abilities
     {
         public const string MENU_NAME = "Game/Ability System/Ability Effects/";
 
-        public abstract void Apply(AbilityContext context);
+        /// <summary>
+/// Applies this ability effect using the provided context.
+/// </summary>
+/// <param name="context">Context containing the ability, the character using it, and the target to which the effect will be applied.</param>
+public abstract void Apply(AbilityContext context);
     }
     
     public class AbilityContext

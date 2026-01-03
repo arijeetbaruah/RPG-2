@@ -10,6 +10,10 @@ namespace RPG.StatusEffects.Behaviour
         [SerializeReference]
         public MathFormula.MathExpression amountPerStack;
         
+        /// <summary>
+        /// Applies the configured resource modification to the context's owner for the current status instance.
+        /// </summary>
+        /// <param name="context">The status context containing the target owner and the status instance whose stacks determine the total modification.</param>
         public override void Execute(StatusContext context)
         {
             context.owner.UpdateStats(resourceType, amountPerStack.Evaluate(context.owner) * context.instance.stacks);

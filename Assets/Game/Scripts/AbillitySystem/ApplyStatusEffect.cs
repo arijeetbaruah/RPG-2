@@ -9,6 +9,11 @@ namespace RPG.Abilities
         [SerializeField]
         private StatusEffect[] statusEffects;
         
+        /// <summary>
+        /// Applies the configured status effects to the ability context's target.
+        /// </summary>
+        /// <param name="context">The ability context whose target will receive the status effects.</param>
+        /// <remarks>If the internal statusEffects array is null or empty, no action is performed. Null entries inside the array are skipped.</remarks>
         public override void Apply(AbilityContext context)
         {
             if (statusEffects == null || statusEffects.Length == 0)
