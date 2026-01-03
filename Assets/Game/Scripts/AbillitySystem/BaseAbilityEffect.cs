@@ -1,4 +1,5 @@
 using RPG.AbilitySystem;
+using RPG.Core.Interfaces;
 using UnityEngine;
 
 namespace RPG.Abilities
@@ -7,12 +8,11 @@ namespace RPG.Abilities
     {
         public const string MENU_NAME = "Game/Ability System/Ability Effects/";
 
-        public abstract void Apply(AbilityContext context);
-    }
-
-    public interface ICharacter
-    {
-        void TakeDamage(float dmg, DamageType damageType);
+        /// <summary>
+/// Applies this ability effect using the provided context.
+/// </summary>
+/// <param name="context">Context containing the ability, the character using it, and the target to which the effect will be applied.</param>
+public abstract void Apply(AbilityContext context);
     }
     
     public class AbilityContext

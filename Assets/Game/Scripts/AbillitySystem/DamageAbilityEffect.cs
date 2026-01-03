@@ -1,3 +1,4 @@
+using RPG.Core.Interfaces;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
