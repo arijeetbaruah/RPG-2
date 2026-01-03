@@ -70,7 +70,14 @@ namespace RPG.Core.Character
         /// <param name="effect">The status effect to apply to the character.</param>
         public void ApplyStatusEffects(IStatusEffect effect)
         {
-            _statusEffects.Add(effect as StatusEffect);
+            if (effect is StatusEffect statusEffect)
+            {
+                _statusEffects.Add(statusEffect);
+            }
+            else
+            {
+                Debug.LogWarning($"Cannot apply status effect: effect is not a StatusEffect instance");
+            }
         }
 
         /// <summary>
