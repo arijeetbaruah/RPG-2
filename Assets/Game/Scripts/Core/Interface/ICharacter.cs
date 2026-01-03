@@ -24,9 +24,27 @@ namespace RPG.Core.Interfaces
     
     public interface ICharacter
     {
-        void TakeDamage(float dmg, DamageType damageType);
-        void Heal(float dmg);
-        void UpdateStats(DerivedStats stats, float delta);
-        void ApplyStatusEffects(IStatusEffect statusEffects);
+        /// <summary>
+/// Applies the specified amount of damage to the character, categorized by the given damage type.
+/// </summary>
+/// <param name="dmg">Amount of health to subtract from the character.</param>
+/// <param name="damageType">Flag indicating the category or categories of damage being applied.</param>
+void TakeDamage(float dmg, DamageType damageType);
+        /// <summary>
+/// Restores the character's hit points by the specified amount.
+/// </summary>
+/// <param name="dmg">The amount of hit points to restore.</param>
+void Heal(float dmg);
+        /// <summary>
+/// Update the character's derived statistics using the provided stats and elapsed time.
+/// </summary>
+/// <param name="stats">DerivedStats values to apply to the character (e.g., recalculated attributes, resistances, or modifiers).</param>
+/// <param name="delta">Elapsed time in seconds since the last update, used to advance time-dependent effects or timers.</param>
+void UpdateStats(DerivedStats stats, float delta);
+        /// <summary>
+/// Applies the given status effect to this character.
+/// </summary>
+/// <param name="statusEffects">The status effect to apply to the character.</param>
+void ApplyStatusEffects(IStatusEffect statusEffects);
     }
 }
