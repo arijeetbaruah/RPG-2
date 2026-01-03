@@ -1,6 +1,6 @@
 using System.Collections.Generic;
-using RPG.Abilities;
 using RPG.AbilitySystem;
+using RPG.Core.Interfaces;
 using UnityEngine;
 
 namespace RPG.Core.Character
@@ -60,6 +60,11 @@ namespace RPG.Core.Character
         {
             _characterData.DerivedStats.TryGetValue(stats, out var value);
             return stats.Evaluate(_characterData) + value;
+        }
+
+        public void UpdateStats(DerivedStats stats, float delta)
+        {
+            CharacterResourceHandler.UpdateStats(stats, delta);
         }
 
         public void TakeDamage(float dmg, DamageType damageType)

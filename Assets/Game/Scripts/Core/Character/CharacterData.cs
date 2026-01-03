@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
-using RPG.Abilities;
+using RPG.Core.Interfaces;
 using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.Localization;

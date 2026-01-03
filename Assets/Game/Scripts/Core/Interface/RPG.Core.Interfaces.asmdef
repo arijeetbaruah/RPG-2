@@ -1,0 +1,14 @@
+{
+    "name": "RPG.Core.Interfaces",
+    "rootNamespace": "RPG.Core.Interfaces",
+    "references": ["GUID:3888811e32ad58a46bd8a5014155363b"],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

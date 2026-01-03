@@ -1,4 +1,5 @@
 using RPG.AbilitySystem;
+using RPG.Core.Interfaces;
 using UnityEngine;
 
 namespace RPG.Abilities
@@ -8,12 +9,6 @@ namespace RPG.Abilities
         public const string MENU_NAME = "Game/Ability System/Ability Effects/";
 
         public abstract void Apply(AbilityContext context);
-    }
-
-    public interface ICharacter
-    {
-        void TakeDamage(float dmg, DamageType damageType);
-        void Heal(float dmg);
     }
     
     public class AbilityContext
