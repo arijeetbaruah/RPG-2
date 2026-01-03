@@ -17,11 +17,16 @@ namespace RPG.Core.Interfaces
         Radiant     = 1 << 7,
         Necrotic    = 1 << 8
     }
+
+    public interface IStatusEffect
+    {
+    }
     
     public interface ICharacter
     {
         void TakeDamage(float dmg, DamageType damageType);
         void Heal(float dmg);
         void UpdateStats(DerivedStats stats, float delta);
+        void ApplyStatusEffects(IStatusEffect statusEffects);
     }
 }

@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace RPG.Abilities
 {
-    [CreateAssetMenu(fileName = "DamageAbilityEffect", menuName = MENU_NAME + nameof(HealEffect))]
+    [CreateAssetMenu(fileName = "HealEffect", menuName = MENU_NAME + nameof(HealEffect))]
     public class HealEffect : BaseAbilityEffect
     {
         [SerializeField, SerializeReference]

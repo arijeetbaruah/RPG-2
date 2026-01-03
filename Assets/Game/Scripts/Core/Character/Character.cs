@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using RPG.AbilitySystem;
 using RPG.Core.Interfaces;
+using RPG.StatusEffects;
 using UnityEngine;
 
 namespace RPG.Core.Character
@@ -60,6 +61,11 @@ namespace RPG.Core.Character
         {
             _characterData.DerivedStats.TryGetValue(stats, out var value);
             return stats.Evaluate(_characterData) + value;
+        }
+
+        public void ApplyStatusEffects(IStatusEffect effect)
+        {
+            
         }
 
         public void UpdateStats(DerivedStats stats, float delta)

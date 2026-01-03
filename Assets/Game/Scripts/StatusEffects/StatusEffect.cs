@@ -1,11 +1,12 @@
 using System.Collections.Generic;
+using RPG.Core.Interfaces;
 using UnityEngine;
 using UnityEngine.Localization;
 
 namespace RPG.StatusEffects
 {
     [CreateAssetMenu(fileName = "StatusEffect", menuName = "Game/StatusEffect")]
-    public class StatusEffect : ScriptableObject
+    public class StatusEffect : ScriptableObject, IStatusEffect
     {
         [SerializeField] private LocalizedString statusId;
         [SerializeField] private LocalizedString displayName;
