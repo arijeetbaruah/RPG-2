@@ -16,7 +16,7 @@ namespace RPG.Abilities
         /// <remarks>If the internal statusEffects array is null or empty, no action is performed. Null entries inside the array are skipped.</remarks>
         public override void Apply(AbilityContext context)
         {
-            if (statusEffects == null || statusEffects.Length == 0 || context.target == null)
+            if (statusEffects == null || statusEffects.Length == 0 || context.target == null || context.target == null)
             {
                 return;
             }
