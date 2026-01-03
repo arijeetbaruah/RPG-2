@@ -54,14 +54,6 @@ namespace RPG.Core.Character
         }
 
         /// <summary>
-        /// Computes the specified derived stat for this character.
-        /// </summary>
-        /// <param name="stats">Evaluator that computes a derived stat using this character's CharacterData.</param>
-        /// <summary>
-        /// Computes the value of the specified derived stat for this character.
-        /// </summary>
-        /// <param name="stats">The derived stat to compute.</param>
-        /// <summary>
         /// Gets the specified derived stat value for this character, including any stored adjustment.
         /// </summary>
         /// <param name="stats">The derived stat to retrieve.</param>
