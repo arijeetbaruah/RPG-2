@@ -10,6 +10,10 @@ namespace RPG.StatusEffects
         public MathFormula.MathExpression damagePerStack;
         public DamageType damageType;
         
+        /// <summary>
+        /// Applies damage to the status effect's owner using the configured per-stack expression multiplied by the current stack count.
+        /// </summary>
+        /// <param name="context">Execution context containing the affected owner and the status instance (whose stack count is used to scale damage).</param>
         public override void Execute(StatusContext context)
         {
             if (damagePerStack == null)

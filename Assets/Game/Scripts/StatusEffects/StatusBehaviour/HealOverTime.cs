@@ -8,6 +8,10 @@ namespace RPG.StatusEffects.Behaviour
         [SerializeReference]
         public MathFormula.MathExpression damagePerStack;
         
+        /// <summary>
+        /// Applies healing to the status effect's owner using the configured per-stack expression.
+        /// </summary>
+        /// <param name="context">Status execution context containing the owner who will receive the healing.</param>
         public override void Execute(StatusContext context)
         {
             if (damagePerStack == null)
