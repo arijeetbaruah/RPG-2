@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace RPG.Abilities
 {
-    [CreateAssetMenu(fileName = "ApplyStatusEffect", menuName = MENU_NAME + nameof(ApplyStatusEffect))]
+    [System.Serializable]
     public class ApplyStatusEffect : BaseAbilityEffect
     {
         [SerializeField]

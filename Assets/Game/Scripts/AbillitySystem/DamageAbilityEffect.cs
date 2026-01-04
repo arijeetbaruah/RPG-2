@@ -3,8 +3,8 @@ using Sirenix.OdinInspector;
 using UnityEngine;
 
 namespace RPG.Abilities
-{
-    [CreateAssetMenu(fileName = "DamageAbilityEffect", menuName = MENU_NAME + nameof(DamageAbilityEffect))]
+{    
+    [System.Serializable]
     public class DamageAbilityEffect : BaseAbilityEffect
     {
         [SerializeField, SerializeReference]

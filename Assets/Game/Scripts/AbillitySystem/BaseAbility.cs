@@ -25,7 +25,7 @@ namespace RPG.AbilitySystem
         [SerializeField] private float cooldown;
         
         [SerializeField] private RequirementSystem.Requirements requirements;
-        [SerializeField] private List<BaseAbilityEffect> _abilityEffects = new ();
+        [SerializeField, SerializeReference] private List<BaseAbilityEffect> _abilityEffects = new ();
         
         public string AbilityId => abilityId;
         public string AbilityName => abilityName?.GetLocalizedString() ?? string.Empty;
