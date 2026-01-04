@@ -14,7 +14,7 @@ namespace RPG.Editor
             var prefab = AssetDatabase.LoadAssetAtPath<GameObject>("Assets/Game/Editor/Localization Text.prefab");
             if (prefab == null)
             {
-                Debug.LogError("MySpecialText prefab not found!");
+                Debug.LogError("Localization Text prefab not found!");
                 return;
             }
             
@@ -46,7 +46,7 @@ namespace RPG.Editor
             }
 
             GameObject instance = (GameObject)PrefabUtility.InstantiatePrefab(prefab, parent.scene);
-            Undo.RegisterCreatedObjectUndo(instance, "Create My Special Text");
+            Undo.RegisterCreatedObjectUndo(instance, "Create Localization Text");
 
             instance.transform.SetParent(parent.transform, false);
             instance.transform.localPosition = Vector3.zero;
