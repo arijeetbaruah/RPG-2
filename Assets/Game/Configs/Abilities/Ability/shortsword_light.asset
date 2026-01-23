@@ -38,9 +38,226 @@ MonoBehaviour:
   requirements:
     BaseRequirements: []
   _abilityEffects:
-  - {fileID: 11400000, guid: e238dcd9c9f386d4a8138806feeecb35, type: 2}
+  - rid: 2917252910768455786
+  - rid: 2917252910768455808
+  - rid: 2917252910768455822
+  - rid: 2917252910768455833
+  - rid: 2917252910768455842
   _targetGroup: 1
   _targetScope: 0
   references:
     version: 2
-    RefIds: []
+    RefIds:
+    - rid: 2917252910768455786
+      type: {class: DamageAbilityEffect, ns: RPG.Abilities, asm: RPG.Abilities}
+      data:
+        _damageFormula:
+          rid: 2917252910768455787
+        _damageType: 1
+    - rid: 2917252910768455787
+      type: {class: Exponential, ns: RPG.MathFormula, asm: RPG.MathGraphSystem}
+      data:
+        power:
+          rid: 2917252910768455789
+    - rid: 2917252910768455789
+      type: {class: Multiply, ns: RPG.MathFormula, asm: RPG.MathGraphSystem}
+      data:
+        values:
+        - rid: 2917252910768455790
+        - rid: 2917252910768455792
+    - rid: 2917252910768455790
+      type: {class: AbilityMasteryExpression, ns: RPG.Abilities, asm: RPG.Core.Character}
+      data: 
+    - rid: 2917252910768455792
+      type: {class: Max, ns: RPG.MathFormula, asm: RPG.MathGraphSystem}
+      data:
+        expressions:
+        - rid: 2917252910768455794
+        - rid: 2917252910768455795
+    - rid: 2917252910768455794
+      type: {class: CoreStatsExpression, ns: RPG.Core.Character, asm: RPG.Core.Character}
+      data:
+        statData:
+          <StatId>k__BackingField: 
+    - rid: 2917252910768455795
+      type: {class: CoreStatsExpression, ns: RPG.Core.Character, asm: RPG.Core.Character}
+      data:
+        statData:
+          <StatId>k__BackingField: dex
+    - rid: 2917252910768455808
+      type: {class: DamageAbilityEffect, ns: RPG.Abilities, asm: RPG.Abilities}
+      data:
+        _damageFormula:
+          rid: 2917252910768455809
+        _damageType: 1
+    - rid: 2917252910768455809
+      type: {class: Exponential, ns: RPG.MathFormula, asm: RPG.MathGraphSystem}
+      data:
+        power:
+          rid: 2917252910768455810
+    - rid: 2917252910768455810
+      type: {class: Multiply, ns: RPG.MathFormula, asm: RPG.MathGraphSystem}
+      data:
+        values:
+        - rid: 2917252910768455811
+        - rid: 2917252910768455812
+    - rid: 2917252910768455811
+      type: {class: AbilityMasteryExpression, ns: RPG.Abilities, asm: RPG.Core.Character}
+      data: 
+    - rid: 2917252910768455812
+      type: {class: Max, ns: RPG.MathFormula, asm: RPG.MathGraphSystem}
+      data:
+        expressions:
+        - rid: 2917252910768455813
+        - rid: 2917252910768455814
+    - rid: 2917252910768455813
+      type: {class: CoreStatsExpression, ns: RPG.Core.Character, asm: RPG.Core.Character}
+      data:
+        statData:
+          <StatId>k__BackingField: 
+    - rid: 2917252910768455814
+      type: {class: CoreStatsExpression, ns: RPG.Core.Character, asm: RPG.Core.Character}
+      data:
+        statData:
+          <StatId>k__BackingField: dex
+    - rid: 2917252910768455822
+      type: {class: MultiEffect, ns: RPG.Abilities, asm: RPG.Abilities}
+      data:
+        _effects:
+        - rid: 2917252910768455824
+        - rid: 2917252910768455832
+    - rid: 2917252910768455824
+      type: {class: DamageAbilityEffect, ns: RPG.Abilities, asm: RPG.Abilities}
+      data:
+        _damageFormula:
+          rid: 2917252910768455825
+        _damageType: 1
+    - rid: 2917252910768455825
+      type: {class: Exponential, ns: RPG.MathFormula, asm: RPG.MathGraphSystem}
+      data:
+        power:
+          rid: 2917252910768455826
+    - rid: 2917252910768455826
+      type: {class: Multiply, ns: RPG.MathFormula, asm: RPG.MathGraphSystem}
+      data:
+        values:
+        - rid: 2917252910768455827
+        - rid: 2917252910768455828
+    - rid: 2917252910768455827
+      type: {class: AbilityMasteryExpression, ns: RPG.Abilities, asm: RPG.Core.Character}
+      data: 
+    - rid: 2917252910768455828
+      type: {class: Max, ns: RPG.MathFormula, asm: RPG.MathGraphSystem}
+      data:
+        expressions:
+        - rid: 2917252910768455829
+        - rid: 2917252910768455830
+    - rid: 2917252910768455829
+      type: {class: CoreStatsExpression, ns: RPG.Core.Character, asm: RPG.Core.Character}
+      data:
+        statData:
+          <StatId>k__BackingField: 
+    - rid: 2917252910768455830
+      type: {class: CoreStatsExpression, ns: RPG.Core.Character, asm: RPG.Core.Character}
+      data:
+        statData:
+          <StatId>k__BackingField: dex
+    - rid: 2917252910768455832
+      type: {class: ApplyStatusEffect, ns: RPG.Abilities, asm: RPG.Abilities}
+      data:
+        statusEffects:
+        - {fileID: 11400000, guid: 0dbddbce723b7d542821b08151a7e44c, type: 2}
+    - rid: 2917252910768455833
+      type: {class: MultiEffect, ns: RPG.Abilities, asm: RPG.Abilities}
+      data:
+        _effects:
+        - rid: 2917252910768455834
+        - rid: 2917252910768455835
+    - rid: 2917252910768455834
+      type: {class: DamageAbilityEffect, ns: RPG.Abilities, asm: RPG.Abilities}
+      data:
+        _damageFormula:
+          rid: 2917252910768455836
+        _damageType: 1
+    - rid: 2917252910768455835
+      type: {class: ApplyStatusEffect, ns: RPG.Abilities, asm: RPG.Abilities}
+      data:
+        statusEffects:
+        - {fileID: 11400000, guid: 0dbddbce723b7d542821b08151a7e44c, type: 2}
+    - rid: 2917252910768455836
+      type: {class: Exponential, ns: RPG.MathFormula, asm: RPG.MathGraphSystem}
+      data:
+        power:
+          rid: 2917252910768455837
+    - rid: 2917252910768455837
+      type: {class: Multiply, ns: RPG.MathFormula, asm: RPG.MathGraphSystem}
+      data:
+        values:
+        - rid: 2917252910768455838
+        - rid: 2917252910768455839
+    - rid: 2917252910768455838
+      type: {class: AbilityMasteryExpression, ns: RPG.Abilities, asm: RPG.Core.Character}
+      data: 
+    - rid: 2917252910768455839
+      type: {class: Max, ns: RPG.MathFormula, asm: RPG.MathGraphSystem}
+      data:
+        expressions:
+        - rid: 2917252910768455840
+        - rid: 2917252910768455841
+    - rid: 2917252910768455840
+      type: {class: CoreStatsExpression, ns: RPG.Core.Character, asm: RPG.Core.Character}
+      data:
+        statData:
+          <StatId>k__BackingField: 
+    - rid: 2917252910768455841
+      type: {class: CoreStatsExpression, ns: RPG.Core.Character, asm: RPG.Core.Character}
+      data:
+        statData:
+          <StatId>k__BackingField: dex
+    - rid: 2917252910768455842
+      type: {class: MultiEffect, ns: RPG.Abilities, asm: RPG.Abilities}
+      data:
+        _effects:
+        - rid: 2917252910768455843
+        - rid: 2917252910768455844
+    - rid: 2917252910768455843
+      type: {class: DamageAbilityEffect, ns: RPG.Abilities, asm: RPG.Abilities}
+      data:
+        _damageFormula:
+          rid: 2917252910768455845
+        _damageType: 1
+    - rid: 2917252910768455844
+      type: {class: ApplyStatusEffect, ns: RPG.Abilities, asm: RPG.Abilities}
+      data:
+        statusEffects:
+        - {fileID: 11400000, guid: 0dbddbce723b7d542821b08151a7e44c, type: 2}
+    - rid: 2917252910768455845
+      type: {class: Exponential, ns: RPG.MathFormula, asm: RPG.MathGraphSystem}
+      data:
+        power:
+          rid: 2917252910768455846
+    - rid: 2917252910768455846
+      type: {class: Multiply, ns: RPG.MathFormula, asm: RPG.MathGraphSystem}
+      data:
+        values:
+        - rid: 2917252910768455847
+        - rid: 2917252910768455848
+    - rid: 2917252910768455847
+      type: {class: AbilityMasteryExpression, ns: RPG.Abilities, asm: RPG.Core.Character}
+      data: 
+    - rid: 2917252910768455848
+      type: {class: Max, ns: RPG.MathFormula, asm: RPG.MathGraphSystem}
+      data:
+        expressions:
+        - rid: 2917252910768455849
+        - rid: 2917252910768455850
+    - rid: 2917252910768455849
+      type: {class: CoreStatsExpression, ns: RPG.Core.Character, asm: RPG.Core.Character}
+      data:
+        statData:
+          <StatId>k__BackingField: 
+    - rid: 2917252910768455850
+      type: {class: CoreStatsExpression, ns: RPG.Core.Character, asm: RPG.Core.Character}
+      data:
+        statData:
+          <StatId>k__BackingField: dex

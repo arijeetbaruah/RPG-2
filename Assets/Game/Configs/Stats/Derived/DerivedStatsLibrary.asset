@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: DerivedStatsLibrary
   m_EditorClassIdentifier: RPG.Core.Character::RPG.Core.Character.DerivedStatsLibrary
   _stats:
+  - {fileID: 11400000, guid: 98d68fc2d97ba134ca407dc89bd36eff, type: 2}
   - {fileID: 11400000, guid: 359c4679e3bc24b49bb6cc38c3fc5771, type: 2}
-  - {fileID: 11400000, guid: 2d356e23afa818b4ea89c8d25f0bce75, type: 2}
   - {fileID: 11400000, guid: fd8888d9ab4de1344a437636edbbe044, type: 2}
   - {fileID: 11400000, guid: 56c662c963622fc45b0f0ba3b135c02b, type: 2}
   - {fileID: 11400000, guid: 04a4158e62b52a548bdac2a72e388b95, type: 2}

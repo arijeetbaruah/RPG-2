@@ -24,10 +24,15 @@ namespace RPG.Core.Interfaces
     
     public interface ICharacter
     {
+        void OnTurnStart();
+        void OnTurnEnd();
+        
         void TakeDamage(float dmg, DamageType damageType);
         void Heal(float dmg);
+        float GetDerivedStat(DerivedStats stats); 
         void UpdateStats(DerivedStats stats, float delta);
         void ApplyStatusEffects(IStatusEffect statusEffects);
         void AddAdditionalCostThisTurn(float additionalAPCost);
+        bool IsDead { get; }
     }
 }

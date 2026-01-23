@@ -26,6 +26,14 @@ MonoBehaviour:
     m_Localized: You use your shortsword to slash your enemy
     m_Metadata:
       m_Items: []
+  - m_Id: 592521666064384
+    m_Localized: Second Wind
+    m_Metadata:
+      m_Items: []
+  - m_Id: 592521699618816
+    m_Localized: You push through the pain and heal yourself
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

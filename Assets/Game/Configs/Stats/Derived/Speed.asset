@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d4a40292e02b3e4ab877866d0512b32, type: 3}
+  m_Name: Speed
+  m_EditorClassIdentifier: RPG.Core.Character::RPG.Core.Character.DerivedStats
+  _expressions:
+  - rid: 1209875750580912497
+  references:
+    version: 2
+    RefIds:
+    - rid: 1209875750580912497
+      type: {class: Multiply, ns: RPG.MathFormula, asm: RPG.MathGraphSystem}
+      data:
+        values:
+        - rid: 1209875750580912500
+        - rid: 1209875750580912501
+    - rid: 1209875750580912500
+      type: {class: CoreStatsExpression, ns: RPG.Core.Character, asm: RPG.Core.Character}
+      data:
+        statData:
+          <StatId>k__BackingField: dex
+    - rid: 1209875750580912501
+      type: {class: Constant, ns: RPG.MathFormula, asm: RPG.MathGraphSystem}
+      data:
+        a: 2

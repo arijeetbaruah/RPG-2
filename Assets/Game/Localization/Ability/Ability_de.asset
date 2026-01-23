@@ -26,6 +26,14 @@ MonoBehaviour:
     m_Localized: Du benutzt dein Kurzschwert, um deinen Feind zu zerschneiden.
     m_Metadata:
       m_Items: []
+  - m_Id: 592521666064384
+    m_Localized: Zweiter Wind
+    m_Metadata:
+      m_Items: []
+  - m_Id: 592521699618816
+    m_Localized: "Du \xFCberwindest den Schmerz und heilst dich selbst."
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

@@ -8,7 +8,10 @@ namespace RPG.Core.Character
     public class DerivedStatsLibrary : BaseConfig
     {
         public IReadOnlyList<DerivedStats> Stats => _stats;
+        public DerivedStats SpeedStats => _speedStats;
         
         [SerializeField] private List<DerivedStats> _stats = new();
+
+        [SerializeField] private DerivedStats _speedStats;
     }
 }

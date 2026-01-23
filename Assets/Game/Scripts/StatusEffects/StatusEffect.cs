@@ -47,5 +47,18 @@ namespace RPG.StatusEffects
             OnAction,
             OnDamageTaken
         }
+
+        public void Tick(StatusTiming timing, ICharacter character, StatusInstance statusInstance)
+        {
+            if (timing != tickTiming)
+            {
+                return;
+            }
+
+            foreach (var behaviour in Behaviours)
+            {
+                behaviour.Execute(new StatusContext(character, statusInstance));
+            }
+        }
     }
 }

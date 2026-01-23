@@ -23,6 +23,14 @@ MonoBehaviour:
     m_Key: ability.shortsword.light.desc
     m_Metadata:
       m_Items: []
+  - m_Id: 592521666064384
+    m_Key: ability.secondwind.title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 592521699618816
+    m_Key: ability.secondwind.desc
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

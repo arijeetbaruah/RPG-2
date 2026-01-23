@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using RPG.AbilitySystem;
 using RPG.Core.Interfaces;
 using RPG.StatusEffects;
@@ -20,11 +21,13 @@ namespace RPG.Core.Character
         
         public CharacterResourceHandler CharacterResourceHandler { get; private set; }
         public IReadOnlyDictionary<BaseAbility, int> Abilities => _abilities;
-        public IReadOnlyList<StatusEffect> StatusEffects => _statusEffects;
+        public IReadOnlyList<StatusInstance> StatusEffects => _statusEffects;
         
-        private List<StatusEffect> _statusEffects = new();
+        private List<StatusInstance> _statusEffects = new();
 
         private int _additionalAPCostThisTurn = 0;
+
+        public bool IsDead => CharacterResourceHandler.CurrentHP == 0;
 
         /// <summary>
         /// Initializes the CharacterResourceHandler property by retrieving the CharacterResourceHandler component from the same GameObject.
@@ -32,6 +35,24 @@ namespace RPG.Core.Character
         private void Awake()
         {
             CharacterResourceHandler = GetComponent<CharacterResourceHandler>();
+        }
+
+        public virtual void OnTurnStart()
+        {
+            TriggerStatusEffect(StatusEffect.StatusTiming.OnTurnStart);
+        }
+        
+        public virtual void OnTurnEnd()
+        {
+            TriggerStatusEffect(StatusEffect.StatusTiming.OnTurnEnd);
+        }
+
+        private void TriggerStatusEffect(StatusEffect.StatusTiming timing)
+        {
+            foreach (var statusEffect in StatusEffects)
+            {
+                statusEffect.status.Tick(timing, this, statusEffect);
+            }
         }
 
         public void AddAbility(BaseAbility ability)
@@ -72,7 +93,29 @@ namespace RPG.Core.Character
         {
             if (effect is StatusEffect statusEffect)
             {
-                _statusEffects.Add(statusEffect);
+                if (_statusEffects.Any(status => status.status == statusEffect))
+                {
+                    var status = _statusEffects.First(status => status.status == statusEffect);
+                    if (status.status.StackType == StatusEffect.StatusStackType.Stack &&
+                        status.stacks < status.status.MaxStacks)
+                    {
+                        status.stacks++;
+                        return;
+                    }
+                    
+                    if (status.status.StackType == StatusEffect.StatusStackType.Stack)
+                    {
+                        status.remainingDuration = 0;
+                        return;
+                    }
+                }
+                
+                _statusEffects.Add(new StatusInstance()
+                {
+                    status = statusEffect,
+                    stacks = 0,
+                    remainingDuration = 0
+                });
             }
             else
             {
@@ -128,6 +171,8 @@ namespace RPG.Core.Character
             }
             
             CharacterResourceHandler.UpdateHP(dmg * dmgMul);
+            
+            TriggerStatusEffect(StatusEffect.StatusTiming.OnDamageTaken);
         }
         
         /// <summary>
